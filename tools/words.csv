@@ -1,25 +1,143 @@
 en,fr,ar,category,query
-banana,,,fruits,banana fruit
-orange,,,fruits,orange fruit
-strawberry,,,fruits,strawberry
-grapes,,,fruits,grapes fruit
-watermelon,,,fruits,watermelon
-dog,,,animaux,dog
-horse,,,animaux,horse
-cow,,,animaux,cow
-bird,,,animaux,bird
-rabbit,,,animaux,rabbit
-elephant,,,animaux,elephant
-bus,,,vehicules,city bus
-train,,,vehicules,train
-airplane,,,vehicules,airplane
-bicycle,,,vehicules,bicycle
-boat,,,vehicules,boat
-book,,,objets,book
-chair,,,objets,chair
-house,,,objets,house
-key,,,objets,key
-shoe,,,objets,shoe
-moon,,,nature,moon
-flower,,,nature,flower
-tree,,,nature,tree
+dog,chien,كلب,animals,dog
+cat,chat,قطة,animals,cat
+horse,cheval,حصان,animals,horse
+cow,vache,بقرة,animals,cow
+sheep,mouton,خروف,animals,sheep
+goat,chèvre,ماعز,animals,goat
+chicken,poule,دجاجة,animals,chicken
+rabbit,lapin,أرنب,animals,rabbit
+mouse,souris,فأر,animals,mouse animal
+elephant,éléphant,فيل,animals,elephant
+lion,lion,أسد,animals,lion
+tiger,tigre,نمر,animals,tiger
+bear,ours,دب,animals,bear
+monkey,singe,قرد,animals,monkey
+giraffe,girafe,زرافة,animals,giraffe
+fish,poisson,سمكة,animals,fish
+turtle,tortue,سلحفاة,animals,turtle
+frog,grenouille,ضفدع,animals,frog
+duck,canard,بطة,animals,duck
+butterfly,papillon,فراشة,animals,butterfly
+bee,abeille,نحلة,animals,bee
+bird,oiseau,عصفور,animals,bird
+snake,serpent,ثعبان,animals,snake
+camel,dromadaire,جمل,animals,camel
+dolphin,dauphin,دلفين,animals,dolphin
+zebra,zèbre,حمار وحشي,animals,zebra
+apple,pomme,تفاحة,fruits,apple
+banana,banane,موزة,fruits,banana
+orange,orange,برتقالة,fruits,orange fruit
+grapes,raisin,عنب,fruits,grapes
+strawberry,fraise,فراولة,fruits,strawberry
+watermelon,pastèque,بطيخ,fruits,watermelon
+pear,poire,إجاصة,fruits,pear
+peach,pêche,خوخة,fruits,peach
+cherries,cerises,كرز,fruits,cherries
+pineapple,ananas,أناناس,fruits,pineapple
+lemon,citron,ليمونة,fruits,lemon
+kiwi,kiwi,كيوي,fruits,kiwi fruit
+tomato,tomate,طماطم,vegetables,tomato
+carrot,carotte,جزرة,vegetables,carrot
+potato,pomme de terre,بطاطا,vegetables,potato
+corn,maïs,ذرة,vegetables,corn
+cucumber,concombre,خيار,vegetables,cucumber
+eggplant,aubergine,باذنجان,vegetables,eggplant
+broccoli,brocoli,بروكلي,vegetables,broccoli
+mushroom,champignon,فطر,vegetables,mushroom
+bread,pain,خبز,food,bread
+cheese,fromage,جبن,food,cheese
+egg,œuf,بيضة,food,egg
+pizza,pizza,بيتزا,food,pizza
+cookie,biscuit,بسكويت,food,chocolate cookie
+ice cream,glace,آيس كريم,food,ice cream cone
+cake,gâteau,كعكة,food,cake
+honey,miel,عسل,food,honey
+milk,lait,حليب,food,glass of milk
+water,eau,ماء,food,glass of water
+car,voiture,سيارة,vehicles,car
+bus,bus,حافلة,vehicles,bus
+train,train,قطار,vehicles,train locomotive
+airplane,avion,طائرة,vehicles,airplane
+bicycle,vélo,دراجة,vehicles,bicycle
+ship,bateau,سفينة,vehicles,ship
+helicopter,hélicoptère,مروحية,vehicles,helicopter
+ambulance,ambulance,سيارة إسعاف,vehicles,ambulance
+fire truck,camion de pompiers,شاحنة إطفاء,vehicles,fire truck
+tractor,tracteur,جرار,vehicles,tractor
+motorcycle,moto,دراجة نارية,vehicles,motorcycle
+rocket,fusée,صاروخ,vehicles,rocket
+house,maison,منزل,things,house building
+bed,lit,سرير,things,bed
+book,livre,كتاب,things,closed book
+pencil,crayon,قلم رصاص,things,pencil
+school bag,cartable,حقيبة مدرسية,things,school backpack
+ball,ballon,كرة,things,football ball
+balloon,ballon de baudruche,بالون,things,balloon
+key,clé,مفتاح,things,door key
+alarm clock,réveil,منبه,things,alarm clock
+phone,téléphone,هاتف,things,smartphone
+light bulb,ampoule,مصباح,things,light bulb
+teddy bear,nounours,دبدوب,things,teddy bear
+gift,cadeau,هدية,things,gift
+umbrella,parapluie,مظلة,things,umbrella
+glasses,lunettes,نظارة,things,glasses
+spoon,cuillère,ملعقة,things,spoon
+door,porte,باب,things,door
+piano,piano,بيانو,things,piano
+T-shirt,t-shirt,قميص,clothes,T-shirt
+pants,pantalon,سروال,clothes,trousers
+shoe,chaussure,حذاء,clothes,shoe
+socks,chaussettes,جوارب,clothes,socks
+cap,casquette,قبعة,clothes,baseball cap
+dress,robe,فستان,clothes,dress
+gloves,gants,قفازات,clothes,gloves
+scarf,écharpe,وشاح,clothes,scarf
+eye,œil,عين,body,eye
+ear,oreille,أذن,body,ear
+nose,nez,أنف,body,nose
+mouth,bouche,فم,body,mouth
+hand,main,يد,body,human hand
+foot,pied,قدم,body,foot
+tooth,dent,سن,body,tooth
+father,papa,أب,relations,father man
+mother,maman,أم,relations,mother woman
+brother,frère,أخ,relations,two brothers
+sister,sœur,أخت,relations,two sisters
+boy,garçon,ولد,relations,little boy
+girl,fille,بنت,relations,little girl
+baby,bébé,رضيع,relations,baby
+grandfather,grand-père,جد,relations,grandfather elderly man
+grandmother,grand-mère,جدة,relations,grandmother elderly woman
+family,famille,عائلة,relations,family parents children
+friends,amis,أصدقاء,relations,two friends
+handshake,poignée de main,مصافحة,relations,handshake
+hug,câlin,عناق,relations,two people hugging
+hello,salut,تحية,relations,person waving hand
+thank you,merci,شكرا,relations,person thank you gesture
+teacher,maître,معلم,relations,teacher
+doctor,médecin,طبيبة,relations,doctor
+police officer,policier,شرطي,relations,police officer
+cook,cuisinier,طباخ,relations,chef cook
+firefighter,pompier,رجل إطفاء,relations,firefighter
+neighbors,voisins,جيران,relations,neighbors people
+party,fête,حفلة,relations,birthday party hat
+sun,soleil,شمس,nature,sun
+moon,lune,قمر,nature,moon
+star,étoile,نجمة,nature,star shape
+cloud,nuage,سحابة,nature,cloud
+rain,pluie,مطر,nature,rain cloud
+snow,neige,ثلج,nature,snowflake
+rainbow,arc-en-ciel,قوس قزح,nature,rainbow
+tree,arbre,شجرة,nature,tree
+flower,fleur,زهرة,nature,flower
+fire,feu,نار,nature,fire flame
+wave,vague,موجة,nature,sea wave
+earth,Terre,الأرض,nature,planet earth
+mountain,montagne,جبل,nature,mountain
+cactus,cactus,صبار,nature,cactus
+palm tree,palmier,نخلة,nature,palm tree
+heart,cœur,قلب,shapes,red heart
+triangle,triangle,مثلث,shapes,triangle shape
+square,carré,مربع,shapes,square shape
+circle,cercle,دائرة,shapes,circle shape

@@ -1,0 +1,137 @@
+[
+ {
+  "id": "numbers",
+  "emoji": "123",
+  "ar": "أرقام",
+  "fr": "Nombres",
+  "en": "Numbers",
+  "color": "#FFE0B2",
+  "suffix": ""
+ },
+ {
+  "id": "latin",
+  "emoji": "Aa",
+  "ar": "الحروف اللاتينية",
+  "fr": "Lettres latines",
+  "en": "Latin letters",
+  "color": "#E1D5F5",
+  "suffix": ""
+ },
+ {
+  "id": "arabic",
+  "emoji": "أ",
+  "ar": "الحروف العربية",
+  "fr": "Lettres arabes",
+  "en": "Arabic letters",
+  "color": "#D7EFD0",
+  "suffix": ""
+ },
+ {
+  "id": "animals",
+  "emoji": "🐘",
+  "ar": "حيوانات",
+  "fr": "Animaux",
+  "en": "Animals",
+  "color": "#FFF2CC",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "fruits",
+  "emoji": "🍎",
+  "ar": "فواكه",
+  "fr": "Fruits",
+  "en": "Fruits",
+  "color": "#FFE0E0",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "vegetables",
+  "emoji": "🥕",
+  "ar": "خضروات",
+  "fr": "Légumes",
+  "en": "Vegetables",
+  "color": "#DCEDC8",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "food",
+  "emoji": "🍞",
+  "ar": "طعام",
+  "fr": "Nourriture",
+  "en": "Food",
+  "color": "#FFE8CC",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "vehicles",
+  "emoji": "🚗",
+  "ar": "مركبات",
+  "fr": "Véhicules",
+  "en": "Vehicles",
+  "color": "#DDEBFF",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "things",
+  "emoji": "🧸",
+  "ar": "أشياء",
+  "fr": "Objets",
+  "en": "Objects",
+  "color": "#EDE7F6",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "clothes",
+  "emoji": "👕",
+  "ar": "ملابس",
+  "fr": "Vêtements",
+  "en": "Clothes",
+  "color": "#FCE4EC",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "body",
+  "emoji": "👁️",
+  "ar": "الجسم",
+  "fr": "Corps",
+  "en": "Body",
+  "color": "#F3E5F5",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "relations",
+  "emoji": "👨‍👩‍👧",
+  "ar": "العلاقات الاجتماعية",
+  "fr": "Relations sociales",
+  "en": "Social relations",
+  "color": "#FFE4E1",
+  "suffix": "person isolated white background"
+ },
+ {
+  "id": "nature",
+  "emoji": "🌳",
+  "ar": "الطبيعة",
+  "fr": "Nature",
+  "en": "Nature",
+  "color": "#D8F3F7",
+  "suffix": "isolated white background"
+ },
+ {
+  "id": "shapes",
+  "emoji": "🔺",
+  "ar": "أشكال",
+  "fr": "Formes",
+  "en": "Shapes",
+  "color": "#E8EAF6",
+  "suffix": "flat icon white background"
+ },
+ {
+  "id": "mine",
+  "emoji": "🧩",
+  "ar": "إضافاتي",
+  "fr": "Mes ajouts",
+  "en": "My additions",
+  "color": "#E0F2F1",
+  "suffix": ""
+ }
+]
