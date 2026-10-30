@@ -12,7 +12,7 @@ import java.net.URLEncoder
 
 /** Génère un objet: traduction (MyMemory) + images libres (Openverse), stocké dans filesDir/custom. */
 object ObjectGenerator {
-    data class Candidate(val url: String, val credit: String)
+    data class Candidate(val url: String, val credit: String, val png: Boolean = false)
 
     private val colors = listOf("#FFE0E0", "#FFF2CC", "#DDEBFF", "#E2F5E2", "#FFF9C4", "#D8F3F7", "#EADCF8", "#FFE8CC")
 
@@ -43,18 +43,35 @@ object ObjectGenerator {
         return Triple(f(ar, "ar"), f(fr, "fr"), f(en, "en"))
     }
 
-    fun search(query: String): List<Candidate> {
+    private fun searchExt(query: String, ext: String): List<Candidate> {
         val q = URLEncoder.encode(query, "UTF-8")
         val arr = JSONObject(String(fetch(
-            "https://api.openverse.org/v1/images/?q=$q&license_type=commercial&mature=false&extension=jpg&page_size=12"
+            "https://api.openverse.org/v1/images/?q=$q&license_type=commercial&mature=false&extension=$ext&page_size=12"
         ))).getJSONArray("results")
         return (0 until arr.length()).map { arr.getJSONObject(it) }
             .filter { it.optInt("width") >= 400 && it.optInt("height") >= 400 }
             .map {
                 Candidate(it.getString("url"),
                     "${it.optString("title")} - ${it.optString("creator")} - " +
-                        "${it.optString("license").uppercase()} ${it.optString("license_version")} - ${it.optString("foreign_landing_url")}")
+                        "${it.optString("license").uppercase()} ${it.optString("license_version")} - ${it.optString("foreign_landing_url")}",
+                    ext == "png")
             }
+    }
+
+    /** Images PNG (souvent à fond transparent) d'abord, puis JPG en secours. */
+    fun search(query: String): List<Candidate> {
+        val a = runCatching { searchExt(query, "png") }
+        val b = runCatching { searchExt(query, "jpg") }
+        if (a.isFailure && b.isFailure) throw a.exceptionOrNull()!!
+        return a.getOrDefault(emptyList()) + b.getOrDefault(emptyList())
+    }
+
+    /** Vrai si l'image a un vrai fond transparent (la plupart des bords sont transparents). */
+    fun isTransparent(b: Bitmap): Boolean {
+        if (!b.hasAlpha()) return false
+        val w = b.width; val h = b.height
+        val pts = listOf(0 to 0, w - 1 to 0, 0 to h - 1, w - 1 to h - 1, w / 2 to 0, w / 2 to h - 1, 0 to h / 2, w - 1 to h / 2)
+        return pts.count { (x, y) -> (b.getPixel(x, y) ushr 24) < 20 } >= 6
     }
 
     fun download(url: String): Bitmap? = runCatching {
@@ -69,16 +86,20 @@ object ObjectGenerator {
     private fun readRoot(f: File) =
         runCatching { JSONObject(f.readText()) }.getOrDefault(JSONObject().put("items", JSONArray()))
 
-    fun add(c: Context, ar: String, fr: String, en: String, bmp: Bitmap, credit: String) {
+    fun add(c: Context, ar: String, fr: String, en: String, bmp: Bitmap, credit: String, category: String) {
         val dir = File(c.filesDir, "custom"); File(dir, "images").mkdirs()
         val id = "c${System.currentTimeMillis()}"
         val r = 512f / maxOf(bmp.width, bmp.height)
         val sb = if (r < 1) Bitmap.createScaledBitmap(bmp, (bmp.width * r).toInt(), (bmp.height * r).toInt(), true) else bmp
-        File(dir, "images/$id.jpg").outputStream().use { sb.compress(Bitmap.CompressFormat.JPEG, 85, it) }
+        val png = isTransparent(sb)
+        val rel = if (png) "images/$id.png" else "images/$id.jpg"
+        File(dir, rel).outputStream().use {
+            if (png) sb.compress(Bitmap.CompressFormat.PNG, 100, it) else sb.compress(Bitmap.CompressFormat.JPEG, 85, it)
+        }
         val file = File(dir, "items.json")
         val root = readRoot(file)
-        root.getJSONArray("items").put(JSONObject().put("id", id).put("img", "images/$id.jpg")
-            .put("ar", ar).put("fr", fr).put("en", en).put("color", colors.random()).put("credit", credit))
+        root.getJSONArray("items").put(JSONObject().put("id", id).put("img", rel)
+            .put("ar", ar).put("fr", fr).put("en", en).put("category", category).put("credit", credit))
         file.writeText(root.toString())
     }
 
@@ -87,6 +108,6 @@ object ObjectGenerator {
         val root = readRoot(file); val old = root.getJSONArray("items"); val kept = JSONArray()
         for (i in 0 until old.length()) if (old.getJSONObject(i).getString("id") != id) kept.put(old.getJSONObject(i))
         file.writeText(JSONObject().put("items", kept).toString())
-        File(dir, "images/$id.jpg").delete()
+        File(dir, "images/$id.jpg").delete(); File(dir, "images/$id.png").delete()
     }
 }

@@ -2,8 +2,20 @@ name: Generate content pack
 on:
   workflow_dispatch:
     inputs:
+      category:
+        description: "Une seule catégorie (id, ex: animals). Vide = toutes"
+        type: string
+        default: ""
       refresh:
-        description: "Recalculer toutes les traductions (ignore l'ancien pack)"
+        description: "Recalculer les traductions"
+        type: boolean
+        default: false
+      refresh_images:
+        description: "Retélécharger toutes les images"
+        type: boolean
+        default: false
+      allow_opaque:
+        description: "Accepter aussi des images sans transparence (JPG)"
         type: boolean
         default: false
 permissions:
@@ -11,16 +23,28 @@ permissions:
 jobs:
   pack:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install pillow
+      - uses: actions/cache@v4
+        with:
+          path: ~/.u2net
+          key: rembg-u2net
+      - name: Install
+        run: pip install pillow "rembg[cpu]"
       - name: Generate pack
         env:
           PIXABAY_KEY: ${{ secrets.PIXABAY_KEY }}
           MYMEMORY_EMAIL: ${{ secrets.MYMEMORY_EMAIL }}
-        run: python tools/make_pack.py ${{ inputs.refresh && '--refresh' || '' }}
+        run: |
+          ARGS=""
+          [ "${{ inputs.refresh }}" = "true" ] && ARGS="$ARGS --refresh"
+          [ "${{ inputs.refresh_images }}" = "true" ] && ARGS="$ARGS --refresh-images"
+          [ "${{ inputs.allow_opaque }}" = "true" ] && ARGS="$ARGS --allow-opaque"
+          [ -n "${{ inputs.category }}" ] && ARGS="$ARGS --category ${{ inputs.category }}"
+          python tools/make_pack.py $ARGS
       - name: Commit pack
         run: |
           git config user.name "pack-bot"

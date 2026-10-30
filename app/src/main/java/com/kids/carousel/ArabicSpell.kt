@@ -12,6 +12,8 @@ object ArabicSpell {
         'ة' to "تاء مربوطة", 'ى' to "ألف مقصورة"
     )
 
+    fun name(c: Char): String = names.getValue(c)
+
     /** Lettres de base du mot (sans harakat, tatweel, espaces ni caractères latins). */
     fun letters(word: String): List<Char> = word.filter { it in names }.toList()
 
