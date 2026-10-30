@@ -387,7 +387,7 @@ class MainActivity : FragmentActivity() {
         toast("Téléchargement en cours…")
         PackImporter.import(this, url) { r ->
             runOnUiThread {
-                r.onSuccess { n -> pager.adapter = newAdapter(); toast("$n images importées") }
+                r.onSuccess { msg -> pager.adapter = newAdapter(); toast(msg) }
                     .onFailure { toast("Échec : ${it.message}") }
             }
         }
@@ -398,7 +398,8 @@ class MainActivity : FragmentActivity() {
             inputType = InputType.TYPE_TEXT_VARIATION_URI
             setText(prefs().getString("url", "https://raw.githubusercontent.com/USER/REPO/main/pack/items.json"))
         }
-        AlertDialog.Builder(this).setTitle("Adresse de items.json").setView(et)
+        AlertDialog.Builder(this).setTitle("Adresse du pack").setView(et)
+            .setMessage("Colle l'adresse du dépôt GitHub (https://github.com/USER/REPO) ou celle du fichier pack/items.json. Le dépôt doit être public.")
             .setPositiveButton("Enregistrer et importer") { _, _ ->
                 prefs().edit().putString("url", et.text.toString().trim()).apply(); runImport()
             }.setNegativeButton("Annuler", null).show()

@@ -11,11 +11,14 @@ object Content {
 
     private fun readDir(c: Context, name: String): List<Item> = runCatching {
         val dir = File(c.filesDir, name)
-        val arr = JSONObject(File(dir, "items.json").readText()).getJSONArray("items")
-        (0 until arr.length()).map { arr.getJSONObject(it) }.mapNotNull { o ->
-            val f = File(dir, o.getString("img"))
-            if (!f.exists()) null
-            else Item("", o.getString("ar"), o.getString("fr"), o.getString("en"), o.optString("color", "#EEEEEE"), f.path)
+        val arr = JSONObject(File(dir, "items.json").readText().trimStart('\uFEFF')).getJSONArray("items")
+        (0 until arr.length()).mapNotNull { i ->
+            val o = arr.optJSONObject(i) ?: return@mapNotNull null
+            val img = o.optString("img")
+            val f = File(dir, img)
+            if (img.isBlank() || !f.isFile) null
+            else Item("", o.optString("ar"), o.optString("fr"), o.optString("en"),
+                o.optString("color").ifBlank { "#EEEEEE" }, f.path)
         }
     }.getOrDefault(emptyList())
 

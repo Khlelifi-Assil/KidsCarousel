@@ -57,7 +57,7 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
 
     override fun onBindViewHolder(h: VH, i: Int) {
         val it = items[i]
-        h.root.setBackgroundColor(Color.parseColor(it.color))
+        h.root.setBackgroundColor(runCatching { Color.parseColor(it.color) }.getOrDefault(Color.LTGRAY))
         h.ar.text = it.ar + spell(it.ar, true)
         h.fr.text = it.fr + spell(it.fr, false)
         h.en.text = it.en + spell(it.en, false)

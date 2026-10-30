@@ -1,6 +1,726 @@
 {
- "version": 1793361695,
+ "version": 1793363803,
  "items": [
+  {
+   "id": "dog",
+   "img": "images/dog.jpg",
+   "ar": "كلب",
+   "fr": "chien",
+   "en": "dog",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Dog - https://en.wikipedia.org/wiki/Dog (licence: voir la page)"
+  },
+  {
+   "id": "cat",
+   "img": "images/cat.jpg",
+   "ar": "قطة",
+   "fr": "chat",
+   "en": "cat",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cat communication - https://en.wikipedia.org/wiki/Cat_communication (licence: voir la page)"
+  },
+  {
+   "id": "rabbit",
+   "img": "images/rabbit.jpg",
+   "ar": "أرنب",
+   "fr": "lapin",
+   "en": "rabbit",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Rabbit - https://en.wikipedia.org/wiki/Rabbit (licence: voir la page)"
+  },
+  {
+   "id": "hamster",
+   "img": "images/hamster.jpg",
+   "ar": "الهامستر",
+   "fr": "hamster",
+   "en": "hamster",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Hamster - https://en.wikipedia.org/wiki/Hamster (licence: voir la page)"
+  },
+  {
+   "id": "mouse",
+   "img": "images/mouse.jpg",
+   "ar": "الماوس",
+   "fr": "souris",
+   "en": "mouse",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Mouse - https://en.wikipedia.org/wiki/Mouse (licence: voir la page)"
+  },
+  {
+   "id": "squirrel",
+   "img": "images/squirrel.jpg",
+   "ar": "السنجاب",
+   "fr": "écureuil",
+   "en": "squirrel",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Eastern gray squirrel - https://en.wikipedia.org/wiki/Eastern_gray_squirrel (licence: voir la page)"
+  },
+  {
+   "id": "fox",
+   "img": "images/fox.jpg",
+   "ar": "ثعلب",
+   "fr": "renard",
+   "en": "fox",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Silver fox (animal) - https://en.wikipedia.org/wiki/Silver_fox_%28animal%29 (licence: voir la page)"
+  },
+  {
+   "id": "bear",
+   "img": "images/bear.jpg",
+   "ar": "دُبٌّ",
+   "fr": "ours",
+   "en": "bear",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Animal Collective - https://en.wikipedia.org/wiki/Animal_Collective (licence: voir la page)"
+  },
+  {
+   "id": "lion",
+   "img": "images/lion.jpg",
+   "ar": "الأسد",
+   "fr": "lion",
+   "en": "lion",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Lion - https://en.wikipedia.org/wiki/Lion (licence: voir la page)"
+  },
+  {
+   "id": "tiger",
+   "img": "images/tiger.jpg",
+   "ar": "نمر",
+   "fr": "tigre",
+   "en": "tiger",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Tiger - https://en.wikipedia.org/wiki/Tiger (licence: voir la page)"
+  },
+  {
+   "id": "elephant",
+   "img": "images/elephant.jpg",
+   "ar": "فيل",
+   "fr": "éléphant",
+   "en": "elephant",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Elephant - https://en.wikipedia.org/wiki/Elephant (licence: voir la page)"
+  },
+  {
+   "id": "giraffe",
+   "img": "images/giraffe.jpg",
+   "ar": "زرافة",
+   "fr": "girafe",
+   "en": "giraffe",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Giraffe - https://en.wikipedia.org/wiki/Giraffe (licence: voir la page)"
+  },
+  {
+   "id": "zebra",
+   "img": "images/zebra.jpg",
+   "ar": "حمار وحشي",
+   "fr": "zèbre",
+   "en": "zebra",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Grévy's zebra - https://en.wikipedia.org/wiki/Gr%C3%A9vy%27s_zebra (licence: voir la page)"
+  },
+  {
+   "id": "monkey",
+   "img": "images/monkey.jpg",
+   "ar": "قرد",
+   "fr": "singe",
+   "en": "monkey",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Monkey - https://en.wikipedia.org/wiki/Monkey (licence: voir la page)"
+  },
+  {
+   "id": "panda",
+   "img": "images/panda.jpg",
+   "ar": "الباندا",
+   "fr": "panda",
+   "en": "panda",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Animal Collective - https://en.wikipedia.org/wiki/Animal_Collective (licence: voir la page)"
+  },
+  {
+   "id": "kangaroo",
+   "img": "images/kangaroo.jpg",
+   "ar": "كنغر",
+   "fr": "kangourou",
+   "en": "kangaroo",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Kangaroo - https://en.wikipedia.org/wiki/Kangaroo (licence: voir la page)"
+  },
+  {
+   "id": "hippo",
+   "img": "images/hippo.jpg",
+   "ar": "فرس النهر",
+   "fr": "hippopotame",
+   "en": "hippo",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Hippopotamus - https://en.wikipedia.org/wiki/Hippopotamus (licence: voir la page)"
+  },
+  {
+   "id": "horse",
+   "img": "images/horse.jpg",
+   "ar": "حصان",
+   "fr": "cheval",
+   "en": "horse",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Horse - https://en.wikipedia.org/wiki/Horse (licence: voir la page)"
+  },
+  {
+   "id": "cow",
+   "img": "images/cow.jpg",
+   "ar": "بقرة",
+   "fr": "vache",
+   "en": "cow",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cattle - https://en.wikipedia.org/wiki/Cattle (licence: voir la page)"
+  },
+  {
+   "id": "pig",
+   "img": "images/pig.jpg",
+   "ar": "خنزير",
+   "fr": "cochon",
+   "en": "pig",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Pig - https://en.wikipedia.org/wiki/Pig (licence: voir la page)"
+  },
+  {
+   "id": "sheep",
+   "img": "images/sheep.jpg",
+   "ar": "غنم",
+   "fr": "mouton",
+   "en": "sheep",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Sheep - https://en.wikipedia.org/wiki/Sheep (licence: voir la page)"
+  },
+  {
+   "id": "goat",
+   "img": "images/goat.jpg",
+   "ar": "معزة",
+   "fr": "chèvre",
+   "en": "goat",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Goat - https://en.wikipedia.org/wiki/Goat (licence: voir la page)"
+  },
+  {
+   "id": "chicken",
+   "img": "images/chicken.jpg",
+   "ar": "فرخة",
+   "fr": "poulet",
+   "en": "chicken",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Chicken - https://en.wikipedia.org/wiki/Chicken (licence: voir la page)"
+  },
+  {
+   "id": "duck",
+   "img": "images/duck.jpg",
+   "ar": "بطة",
+   "fr": "canard",
+   "en": "duck",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Duck, duck, goose - https://en.wikipedia.org/wiki/Duck%2C_duck%2C_goose (licence: voir la page)"
+  },
+  {
+   "id": "penguin",
+   "img": "images/penguin.jpg",
+   "ar": "البطريق",
+   "fr": "manchot",
+   "en": "penguin",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Gentoo penguin - https://en.wikipedia.org/wiki/Gentoo_penguin (licence: voir la page)"
+  },
+  {
+   "id": "dolphin",
+   "img": "images/dolphin.jpg",
+   "ar": "دولفين",
+   "fr": "dauphin",
+   "en": "dolphin",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Dolphin - https://en.wikipedia.org/wiki/Dolphin (licence: voir la page)"
+  },
+  {
+   "id": "whale",
+   "img": "images/whale.jpg",
+   "ar": "حوت",
+   "fr": "baleine",
+   "en": "whale",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Blue whale penis - https://en.wikipedia.org/wiki/Blue_whale_penis (licence: voir la page)"
+  },
+  {
+   "id": "turtle",
+   "img": "images/turtle.jpg",
+   "ar": "سلحفاة",
+   "fr": "tortue",
+   "en": "turtle",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Common box turtle - https://en.wikipedia.org/wiki/Common_box_turtle (licence: voir la page)"
+  },
+  {
+   "id": "frog",
+   "img": "images/frog.jpg",
+   "ar": "ضفدع",
+   "fr": "grenouille",
+   "en": "frog",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Loveland frog - https://en.wikipedia.org/wiki/Loveland_frog (licence: voir la page)"
+  },
+  {
+   "id": "butterfly",
+   "img": "images/butterfly.jpg",
+   "ar": "فراشة",
+   "fr": "papillon",
+   "en": "butterfly",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Papiliomaris - https://en.wikipedia.org/wiki/Papiliomaris (licence: voir la page)"
+  },
+  {
+   "id": "bee",
+   "img": "images/bee.jpg",
+   "ar": "نحلة",
+   "fr": "abeille",
+   "en": "bee",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Honey bee - https://en.wikipedia.org/wiki/Honey_bee (licence: voir la page)"
+  },
+  {
+   "id": "ladybug",
+   "img": "images/ladybug.jpg",
+   "ar": "الخنفساء",
+   "fr": "coccinelle",
+   "en": "ladybug",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Miraculous: Tales of Ladybug & Cat Noir - https://en.wikipedia.org/wiki/Miraculous%3A_Tales_of_Ladybug_%26_Cat_Noir (licence: voir la page)"
+  },
+  {
+   "id": "snail",
+   "img": "images/snail.jpg",
+   "ar": "حلزون",
+   "fr": "escargot",
+   "en": "snail",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cone snail - https://en.wikipedia.org/wiki/Cone_snail (licence: voir la page)"
+  },
+  {
+   "id": "owl",
+   "img": "images/owl.jpg",
+   "ar": "بُومَة",
+   "fr": "hibou",
+   "en": "owl",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Barn owl - https://en.wikipedia.org/wiki/Barn_owl (licence: voir la page)"
+  },
+  {
+   "id": "parrot",
+   "img": "images/parrot.jpg",
+   "ar": "ببغاء",
+   "fr": "perroquet",
+   "en": "parrot",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Grey parrot - https://en.wikipedia.org/wiki/Grey_parrot (licence: voir la page)"
+  },
+  {
+   "id": "fish",
+   "img": "images/fish.jpg",
+   "ar": "سمكة",
+   "fr": "poisson",
+   "en": "fish",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Shoaling and schooling - https://en.wikipedia.org/wiki/Shoaling_and_schooling (licence: voir la page)"
+  },
+  {
+   "id": "shark",
+   "img": "images/shark.jpg",
+   "ar": "سمك القرش",
+   "fr": "requin",
+   "en": "shark",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Whale shark - https://en.wikipedia.org/wiki/Whale_shark (licence: voir la page)"
+  },
+  {
+   "id": "octopus",
+   "img": "images/octopus.jpg",
+   "ar": "الأخطبوط",
+   "fr": "pieuvre",
+   "en": "octopus",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Octopus - https://en.wikipedia.org/wiki/Octopus (licence: voir la page)"
+  },
+  {
+   "id": "crab",
+   "img": "images/crab.jpg",
+   "ar": "كراب",
+   "fr": "crabe",
+   "en": "crab",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Horseshoe crab - https://en.wikipedia.org/wiki/Horseshoe_crab (licence: voir la page)"
+  },
+  {
+   "id": "starfish",
+   "img": "images/starfish.jpg",
+   "ar": "نجم البحر",
+   "fr": "étoile de mer",
+   "en": "starfish",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Crown-of-thorns starfish - https://en.wikipedia.org/wiki/Crown-of-thorns_starfish (licence: voir la page)"
+  },
+  {
+   "id": "carrot",
+   "img": "images/carrot.jpg",
+   "ar": "جزرة",
+   "fr": "carotte",
+   "en": "carrot",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Carrot - https://en.wikipedia.org/wiki/Carrot (licence: voir la page)"
+  },
+  {
+   "id": "potato",
+   "img": "images/potato.jpg",
+   "ar": "البطاطس",
+   "fr": "pomme de terre",
+   "en": "potato",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Sweet potato - https://en.wikipedia.org/wiki/Sweet_potato (licence: voir la page)"
+  },
+  {
+   "id": "tomato",
+   "img": "images/tomato.jpg",
+   "ar": "طماطم",
+   "fr": "tomate",
+   "en": "tomato",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Tomato - https://en.wikipedia.org/wiki/Tomato (licence: voir la page)"
+  },
+  {
+   "id": "cucumber",
+   "img": "images/cucumber.jpg",
+   "ar": "خيار",
+   "fr": "concombre",
+   "en": "cucumber",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cucumber - https://en.wikipedia.org/wiki/Cucumber (licence: voir la page)"
+  },
+  {
+   "id": "broccoli",
+   "img": "images/broccoli.jpg",
+   "ar": "بروكلي",
+   "fr": "brocoli",
+   "en": "broccoli",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Broccoli - https://en.wikipedia.org/wiki/Broccoli (licence: voir la page)"
+  },
+  {
+   "id": "corn",
+   "img": "images/corn.jpg",
+   "ar": "حبوب ذرة",
+   "fr": "maïs",
+   "en": "corn",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Creamed corn - https://en.wikipedia.org/wiki/Creamed_corn (licence: voir la page)"
+  },
+  {
+   "id": "peas",
+   "img": "images/peas.jpg",
+   "ar": "البازلاء",
+   "fr": "petits pois",
+   "en": "peas",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Marrowfat peas - https://en.wikipedia.org/wiki/Marrowfat_peas (licence: voir la page)"
+  },
+  {
+   "id": "pumpkin",
+   "img": "images/pumpkin.jpg",
+   "ar": "اليقطين",
+   "fr": "citrouille",
+   "en": "pumpkin",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Pumpkin - https://en.wikipedia.org/wiki/Pumpkin (licence: voir la page)"
+  },
+  {
+   "id": "onion",
+   "img": "images/onion.jpg",
+   "ar": "بصل",
+   "fr": "oignon",
+   "en": "onion",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Onion - https://en.wikipedia.org/wiki/Onion (licence: voir la page)"
+  },
+  {
+   "id": "garlic",
+   "img": "images/garlic.jpg",
+   "ar": "ثوم",
+   "fr": "ail",
+   "en": "garlic",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Elephant garlic - https://en.wikipedia.org/wiki/Elephant_garlic (licence: voir la page)"
+  },
+  {
+   "id": "lettuce",
+   "img": "images/lettuce.jpg",
+   "ar": "خَسّ",
+   "fr": "laitue",
+   "en": "lettuce",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Lettuce - https://en.wikipedia.org/wiki/Lettuce (licence: voir la page)"
+  },
+  {
+   "id": "spinach",
+   "img": "images/spinach.jpg",
+   "ar": "سبانخ",
+   "fr": "épinard",
+   "en": "spinach",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Spinach - https://en.wikipedia.org/wiki/Spinach (licence: voir la page)"
+  },
+  {
+   "id": "cabbage",
+   "img": "images/cabbage.jpg",
+   "ar": "كرنب",
+   "fr": "chou",
+   "en": "cabbage",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cabbage - https://en.wikipedia.org/wiki/Cabbage (licence: voir la page)"
+  },
+  {
+   "id": "bell_pepper",
+   "img": "images/bell_pepper.jpg",
+   "ar": "الفلفل الحلو",
+   "fr": "poivron",
+   "en": "bell pepper",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Bell pepper - https://en.wikipedia.org/wiki/Bell_pepper (licence: voir la page)"
+  },
+  {
+   "id": "eggplant",
+   "img": "images/eggplant.jpg",
+   "ar": "باذنجان",
+   "fr": "aubergine",
+   "en": "eggplant",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Eggplant - https://en.wikipedia.org/wiki/Eggplant (licence: voir la page)"
+  },
+  {
+   "id": "zucchini",
+   "img": "images/zucchini.jpg",
+   "ar": "كوسة",
+   "fr": "courgettes",
+   "en": "zucchini",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Zucchini - https://en.wikipedia.org/wiki/Zucchini (licence: voir la page)"
+  },
+  {
+   "id": "mushroom",
+   "img": "images/mushroom.jpg",
+   "ar": "فطر",
+   "fr": "champignon",
+   "en": "mushroom",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Shiitake - https://en.wikipedia.org/wiki/Shiitake (licence: voir la page)"
+  },
+  {
+   "id": "radish",
+   "img": "images/radish.jpg",
+   "ar": "الفجل",
+   "fr": "radis",
+   "en": "radish",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Radish - https://en.wikipedia.org/wiki/Radish (licence: voir la page)"
+  },
+  {
+   "id": "celery",
+   "img": "images/celery.jpg",
+   "ar": "كرفس",
+   "fr": "céleri",
+   "en": "celery",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Celery - https://en.wikipedia.org/wiki/Celery (licence: voir la page)"
+  },
+  {
+   "id": "cauliflower",
+   "img": "images/cauliflower.jpg",
+   "ar": "قرنبيط",
+   "fr": "chou-fleur",
+   "en": "cauliflower",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cauliflower - https://en.wikipedia.org/wiki/Cauliflower (licence: voir la page)"
+  },
+  {
+   "id": "green_bean",
+   "img": "images/green_bean.jpg",
+   "ar": "الفاصوليا الخضراء",
+   "fr": "haricot vert",
+   "en": "green bean",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Green bean - https://en.wikipedia.org/wiki/Green_bean (licence: voir la page)"
+  },
+  {
+   "id": "turnip",
+   "img": "images/turnip.jpg",
+   "ar": "اللفت",
+   "fr": "navet",
+   "en": "turnip",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Rutabaga - https://en.wikipedia.org/wiki/Rutabaga (licence: voir la page)"
+  },
+  {
+   "id": "leek",
+   "img": "images/leek.jpg",
+   "ar": "كراث",
+   "fr": "poireau",
+   "en": "leek",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Leek - https://en.wikipedia.org/wiki/Leek (licence: voir la page)"
+  },
+  {
+   "id": "ginger",
+   "img": "images/ginger.jpg",
+   "ar": "زنجبيل",
+   "fr": "gingembre",
+   "en": "ginger",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Ginger dressing - https://en.wikipedia.org/wiki/Ginger_dressing (licence: voir la page)"
+  },
+  {
+   "id": "avocado",
+   "img": "images/avocado.jpg",
+   "ar": "أفوكادو",
+   "fr": "avocat",
+   "en": "avocado",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Avocado - https://en.wikipedia.org/wiki/Avocado (licence: voir la page)"
+  },
+  {
+   "id": "olive",
+   "img": "images/olive.jpg",
+   "ar": "زيتون",
+   "fr": "olive",
+   "en": "olive",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Canarium album - https://en.wikipedia.org/wiki/Canarium_album (licence: voir la page)"
+  },
+  {
+   "id": "sweet_potato",
+   "img": "images/sweet_potato.jpg",
+   "ar": "البطاطا الحلوة",
+   "fr": "patate douce",
+   "en": "sweet potato",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Sweet potato - https://en.wikipedia.org/wiki/Sweet_potato (licence: voir la page)"
+  },
+  {
+   "id": "beetroot",
+   "img": "images/beetroot.jpg",
+   "ar": "الشمندر",
+   "fr": "betterave",
+   "en": "beetroot",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Beetroot - https://en.wikipedia.org/wiki/Beetroot (licence: voir la page)"
+  },
+  {
+   "id": "squash",
+   "img": "images/squash.jpg",
+   "ar": "قرع",
+   "fr": "squash",
+   "en": "squash",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Spaghetti squash - https://en.wikipedia.org/wiki/Spaghetti_squash (licence: voir la page)"
+  },
+  {
+   "id": "kale",
+   "img": "images/kale.jpg",
+   "ar": "كالي",
+   "fr": "chou frisé",
+   "en": "kale",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Kale - https://en.wikipedia.org/wiki/Kale (licence: voir la page)"
+  },
+  {
+   "id": "chili",
+   "img": "images/chili.jpg",
+   "ar": "الفلفل الحار",
+   "fr": "piment",
+   "en": "chili",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Chili oil - https://en.wikipedia.org/wiki/Chili_oil (licence: voir la page)"
+  },
+  {
+   "id": "sweetcorn",
+   "img": "images/sweetcorn.jpg",
+   "ar": "ذرة حلوة",
+   "fr": "maïs doux",
+   "en": "sweetcorn",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Creamed corn - https://en.wikipedia.org/wiki/Creamed_corn (licence: voir la page)"
+  },
+  {
+   "id": "parsnip",
+   "img": "images/parsnip.jpg",
+   "ar": "الجزر الأبيض",
+   "fr": "panais",
+   "en": "parsnip",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Parsnip - https://en.wikipedia.org/wiki/Parsnip (licence: voir la page)"
+  },
+  {
+   "id": "brussels_sprout",
+   "img": "images/brussels_sprout.jpg",
+   "ar": "برعم بروكسل",
+   "fr": "chou de bruxelles",
+   "en": "brussels sprout",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Brussels sprout - https://en.wikipedia.org/wiki/Brussels_sprout (licence: voir la page)"
+  },
+  {
+   "id": "asparagus",
+   "img": "images/asparagus.jpg",
+   "ar": "الهليون",
+   "fr": "asperge",
+   "en": "asparagus",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cream of asparagus soup - https://en.wikipedia.org/wiki/Cream_of_asparagus_soup (licence: voir la page)"
+  },
+  {
+   "id": "yam",
+   "img": "images/yam.jpg",
+   "ar": "بطاطا",
+   "fr": "patate douce",
+   "en": "yam",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Yam (vegetable) - https://en.wikipedia.org/wiki/Yam_%28vegetable%29 (licence: voir la page)"
+  },
+  {
+   "id": "pumpkin_seed",
+   "img": "images/pumpkin_seed.jpg",
+   "ar": "بذور اليقطين",
+   "fr": "graine de citrouille",
+   "en": "pumpkin seed",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Pumpkin seed - https://en.wikipedia.org/wiki/Pumpkin_seed (licence: voir la page)"
+  },
+  {
+   "id": "artichoke",
+   "img": "images/artichoke.jpg",
+   "ar": "خرشوف",
+   "fr": "artichaut",
+   "en": "artichoke",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Artichoke - https://en.wikipedia.org/wiki/Artichoke (licence: voir la page)"
+  },
+  {
+   "id": "chicory",
+   "img": "images/chicory.jpg",
+   "ar": "الهندباء",
+   "fr": "chicorée",
+   "en": "chicory",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Chicory - https://en.wikipedia.org/wiki/Chicory (licence: voir la page)"
+  },
+  {
+   "id": "watercress",
+   "img": "images/watercress.jpg",
+   "ar": "الجرجير",
+   "fr": "cresson",
+   "en": "watercress",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Watercress - https://en.wikipedia.org/wiki/Watercress (licence: voir la page)"
+  },
   {
    "id": "banana",
    "img": "images/banana.jpg",
@@ -9,6 +729,15 @@
    "en": "banana",
    "color": "#FFE0E0",
    "credit": "Wikipedia - United Fruit Company - https://en.wikipedia.org/wiki/United_Fruit_Company (licence: voir la page)"
+  },
+  {
+   "id": "apple",
+   "img": "images/apple.jpg",
+   "ar": "تفاحة",
+   "fr": "pomme",
+   "en": "apple",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Apple - https://en.wikipedia.org/wiki/Apple (licence: voir la page)"
   },
   {
    "id": "orange",
@@ -29,13 +758,13 @@
    "credit": "Wikipedia - Strawberry - https://en.wikipedia.org/wiki/Strawberry (licence: voir la page)"
   },
   {
-   "id": "grapes",
-   "img": "images/grapes.jpg",
+   "id": "grape",
+   "img": "images/grape.jpg",
    "ar": "العنب",
-   "fr": "raisins",
-   "en": "grapes",
+   "fr": "raisin",
+   "en": "grape",
    "color": "#FFE0E0",
-   "credit": "Wikipedia - Grape - https://en.wikipedia.org/wiki/Grape (licence: voir la page)"
+   "credit": "Wikipedia - Grapefruit - https://en.wikipedia.org/wiki/Grapefruit (licence: voir la page)"
   },
   {
    "id": "watermelon",
@@ -47,103 +776,310 @@
    "credit": "Wikipedia - Watermelon - https://en.wikipedia.org/wiki/Watermelon (licence: voir la page)"
   },
   {
-   "id": "dog",
-   "img": "images/dog.jpg",
-   "ar": "كلب",
-   "fr": "chien",
-   "en": "dog",
-   "color": "#FFF2CC",
-   "credit": "Wikipedia - Dog - https://en.wikipedia.org/wiki/Dog (licence: voir la page)"
+   "id": "melon",
+   "img": "images/melon.jpg",
+   "ar": "البطيخ",
+   "fr": "melon",
+   "en": "melon",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Melon - https://en.wikipedia.org/wiki/Melon (licence: voir la page)"
   },
   {
-   "id": "horse",
-   "img": "images/horse.jpg",
-   "ar": "حصان",
-   "fr": "cheval",
-   "en": "horse",
-   "color": "#FFF2CC",
-   "credit": "Wikipedia - Horse - https://en.wikipedia.org/wiki/Horse (licence: voir la page)"
+   "id": "peach",
+   "img": "images/peach.jpg",
+   "ar": "خَوخ",
+   "fr": "pêche",
+   "en": "peach",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Peach - https://en.wikipedia.org/wiki/Peach (licence: voir la page)"
   },
   {
-   "id": "cow",
-   "img": "images/cow.jpg",
-   "ar": "بقرة",
-   "fr": "vache",
-   "en": "cow",
-   "color": "#FFF2CC",
-   "credit": "Wikipedia - Cattle - https://en.wikipedia.org/wiki/Cattle (licence: voir la page)"
+   "id": "pear",
+   "img": "images/pear.jpg",
+   "ar": "كُمَّثرَى",
+   "fr": "poire",
+   "en": "pear",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Pear - https://en.wikipedia.org/wiki/Pear (licence: voir la page)"
   },
   {
-   "id": "bird",
-   "img": "images/bird.jpg",
-   "ar": "طائر",
-   "fr": "oiseau",
-   "en": "bird",
-   "color": "#FFF2CC",
-   "credit": "Wikipedia - Bird - https://en.wikipedia.org/wiki/Bird (licence: voir la page)"
+   "id": "plum",
+   "img": "images/plum.jpg",
+   "ar": "البرقوق",
+   "fr": "prune",
+   "en": "plum",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Plum - https://en.wikipedia.org/wiki/Plum (licence: voir la page)"
   },
   {
-   "id": "rabbit",
-   "img": "images/rabbit.jpg",
-   "ar": "أرنب",
-   "fr": "lapin",
-   "en": "rabbit",
-   "color": "#FFF2CC",
-   "credit": "Wikipedia - Rabbit - https://en.wikipedia.org/wiki/Rabbit (licence: voir la page)"
+   "id": "cherry",
+   "img": "images/cherry.jpg",
+   "ar": "الكرز",
+   "fr": "cerise",
+   "en": "cherry",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Cherry - https://en.wikipedia.org/wiki/Cherry (licence: voir la page)"
   },
   {
-   "id": "elephant",
-   "img": "images/elephant.jpg",
-   "ar": "فيل",
-   "fr": "éléphant",
-   "en": "elephant",
-   "color": "#FFF2CC",
-   "credit": "Wikipedia - Elephant - https://en.wikipedia.org/wiki/Elephant (licence: voir la page)"
+   "id": "blueberry",
+   "img": "images/blueberry.jpg",
+   "ar": ".توت",
+   "fr": "myrtille",
+   "en": "blueberry",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Blueberry - https://en.wikipedia.org/wiki/Blueberry (licence: voir la page)"
   },
   {
-   "id": "bus",
-   "img": "images/bus.jpg",
-   "ar": "حافلة",
-   "fr": "bus",
-   "en": "bus",
-   "color": "#DDEBFF",
-   "credit": "Wikipedia - Transit bus - https://en.wikipedia.org/wiki/Transit_bus (licence: voir la page)"
+   "id": "raspberry",
+   "img": "images/raspberry.jpg",
+   "ar": "توت العُليق",
+   "fr": "framboise",
+   "en": "raspberry",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Raspberry - https://en.wikipedia.org/wiki/Raspberry (licence: voir la page)"
   },
   {
-   "id": "train",
-   "img": "images/train.jpg",
-   "ar": "يدرب",
-   "fr": "former",
-   "en": "train",
-   "color": "#DDEBFF",
-   "credit": "Wikipedia - Train - https://en.wikipedia.org/wiki/Train (licence: voir la page)"
+   "id": "blackberry",
+   "img": "images/blackberry.jpg",
+   "ar": "بلاك بيري",
+   "fr": "mûre",
+   "en": "blackberry",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Blackberry - https://en.wikipedia.org/wiki/Blackberry (licence: voir la page)"
   },
   {
-   "id": "airplane",
-   "img": "images/airplane.jpg",
-   "ar": "طائرة",
-   "fr": "avion",
-   "en": "airplane",
-   "color": "#DDEBFF",
-   "credit": "Wikipedia - Airplane - https://en.wikipedia.org/wiki/Airplane (licence: voir la page)"
+   "id": "kiwi",
+   "img": "images/kiwi.jpg",
+   "ar": "كيوي",
+   "fr": "kiwi",
+   "en": "kiwi",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Kiwifruit - https://en.wikipedia.org/wiki/Kiwifruit (licence: voir la page)"
   },
   {
-   "id": "bicycle",
-   "img": "images/bicycle.jpg",
-   "ar": "دراجة",
-   "fr": "vélo",
-   "en": "bicycle",
-   "color": "#DDEBFF",
-   "credit": "Wikipedia - Bicycle - https://en.wikipedia.org/wiki/Bicycle (licence: voir la page)"
+   "id": "pineapple",
+   "img": "images/pineapple.jpg",
+   "ar": "أناناس",
+   "fr": "ananas",
+   "en": "pineapple",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Pineapple - https://en.wikipedia.org/wiki/Pineapple (licence: voir la page)"
   },
   {
-   "id": "boat",
-   "img": "images/boat.jpg",
-   "ar": "قارب",
-   "fr": "bateau",
-   "en": "boat",
-   "color": "#DDEBFF",
-   "credit": "Wikipedia - Boat - https://en.wikipedia.org/wiki/Boat (licence: voir la page)"
+   "id": "mango",
+   "img": "images/mango.jpg",
+   "ar": "مانجو",
+   "fr": "mangue",
+   "en": "mango",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Mango - https://en.wikipedia.org/wiki/Mango (licence: voir la page)"
+  },
+  {
+   "id": "papaya",
+   "img": "images/papaya.jpg",
+   "ar": "البابايا",
+   "fr": "papaye",
+   "en": "papaya",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Papaya - https://en.wikipedia.org/wiki/Papaya (licence: voir la page)"
+  },
+  {
+   "id": "coconut",
+   "img": "images/coconut.jpg",
+   "ar": "جوزة الهند",
+   "fr": "noix de coco",
+   "en": "coconut",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Coconut - https://en.wikipedia.org/wiki/Coconut (licence: voir la page)"
+  },
+  {
+   "id": "lemon",
+   "img": "images/lemon.jpg",
+   "ar": "ليمون",
+   "fr": "citron",
+   "en": "lemon",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Lemon - https://en.wikipedia.org/wiki/Lemon (licence: voir la page)"
+  },
+  {
+   "id": "lime",
+   "img": "images/lime.jpg",
+   "ar": "الجير",
+   "fr": "citron vert",
+   "en": "lime",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Lime (fruit) - https://en.wikipedia.org/wiki/Lime_%28fruit%29 (licence: voir la page)"
+  },
+  {
+   "id": "fig",
+   "img": "images/fig.jpg",
+   "ar": "تين",
+   "fr": "figue",
+   "en": "fig",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Fig - https://en.wikipedia.org/wiki/Fig (licence: voir la page)"
+  },
+  {
+   "id": "date",
+   "img": "images/date.jpg",
+   "ar": "تاريخ",
+   "fr": "date",
+   "en": "date",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Date palm - https://en.wikipedia.org/wiki/Date_palm (licence: voir la page)"
+  },
+  {
+   "id": "apricot",
+   "img": "images/apricot.jpg",
+   "ar": "مشمش",
+   "fr": "abricot",
+   "en": "apricot",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Apricot - https://en.wikipedia.org/wiki/Apricot (licence: voir la page)"
+  },
+  {
+   "id": "pomegranate",
+   "img": "images/pomegranate.jpg",
+   "ar": "رمان",
+   "fr": "grenade",
+   "en": "pomegranate",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Pomegranate - https://en.wikipedia.org/wiki/Pomegranate (licence: voir la page)"
+  },
+  {
+   "id": "grapefruit",
+   "img": "images/grapefruit.jpg",
+   "ar": "الجريب فروت",
+   "fr": "pamplemousse",
+   "en": "grapefruit",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Grapefruit - https://en.wikipedia.org/wiki/Grapefruit (licence: voir la page)"
+  },
+  {
+   "id": "mandarin",
+   "img": "images/mandarin.jpg",
+   "ar": "الماندرين",
+   "fr": "mandarin",
+   "en": "mandarin",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Mandarin orange - https://en.wikipedia.org/wiki/Mandarin_orange (licence: voir la page)"
+  },
+  {
+   "id": "cranberry",
+   "img": "images/cranberry.jpg",
+   "ar": "توت بري",
+   "fr": "canneberge",
+   "en": "cranberry",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Cranberry - https://en.wikipedia.org/wiki/Cranberry (licence: voir la page)"
+  },
+  {
+   "id": "guava",
+   "img": "images/guava.jpg",
+   "ar": "الجوافة",
+   "fr": "goyave",
+   "en": "guava",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Guava - https://en.wikipedia.org/wiki/Guava (licence: voir la page)"
+  },
+  {
+   "id": "passion_fruit",
+   "img": "images/passion_fruit.jpg",
+   "ar": "فاكهة العاطفة",
+   "fr": "fruit de la passion",
+   "en": "passion fruit",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Passion fruit (fruit) - https://en.wikipedia.org/wiki/Passion_fruit_%28fruit%29 (licence: voir la page)"
+  },
+  {
+   "id": "lychee",
+   "img": "images/lychee.jpg",
+   "ar": "ليتشي",
+   "fr": "litchi",
+   "en": "lychee",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Lychee - https://en.wikipedia.org/wiki/Lychee (licence: voir la page)"
+  },
+  {
+   "id": "dragon_fruit",
+   "img": "images/dragon_fruit.jpg",
+   "ar": "فاكهة التنين",
+   "fr": "fruit du dragon",
+   "en": "dragon fruit",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Tropical fruit - https://en.wikipedia.org/wiki/Tropical_fruit (licence: voir la page)"
+  },
+  {
+   "id": "persimmon",
+   "img": "images/persimmon.jpg",
+   "ar": "البرسيمون",
+   "fr": "kaki",
+   "en": "persimmon",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Persimmon - https://en.wikipedia.org/wiki/Persimmon (licence: voir la page)"
+  },
+  {
+   "id": "nectarine",
+   "img": "images/nectarine.jpg",
+   "ar": "النكتارين",
+   "fr": "nectarine",
+   "en": "nectarine",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Peach - https://en.wikipedia.org/wiki/Peach (licence: voir la page)"
+  },
+  {
+   "id": "cantaloupe",
+   "img": "images/cantaloupe.jpg",
+   "ar": "الشمام",
+   "fr": "cantaloup",
+   "en": "cantaloupe",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Melon - https://en.wikipedia.org/wiki/Melon (licence: voir la page)"
+  },
+  {
+   "id": "honeydew",
+   "img": "images/honeydew.jpg",
+   "ar": "المن",
+   "fr": "miellat",
+   "en": "honeydew",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Honeydew (melon) - https://en.wikipedia.org/wiki/Honeydew_%28melon%29 (licence: voir la page)"
+  },
+  {
+   "id": "star_fruit",
+   "img": "images/star_fruit.jpg",
+   "ar": "فاكهة النجمة",
+   "fr": "carambole",
+   "en": "star fruit",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Tropical fruit - https://en.wikipedia.org/wiki/Tropical_fruit (licence: voir la page)"
+  },
+  {
+   "id": "quince",
+   "img": "images/quince.jpg",
+   "ar": "سفرجل",
+   "fr": "coing",
+   "en": "quince",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Quince - https://en.wikipedia.org/wiki/Quince (licence: voir la page)"
+  },
+  {
+   "id": "tangerine",
+   "img": "images/tangerine.jpg",
+   "ar": "اليوسفي",
+   "fr": "tangerine",
+   "en": "tangerine",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Tangerine - https://en.wikipedia.org/wiki/Tangerine (licence: voir la page)"
+  },
+  {
+   "id": "currant",
+   "img": "images/currant.jpg",
+   "ar": "زبيب",
+   "fr": "groseille",
+   "en": "currant",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Blackcurrant - https://en.wikipedia.org/wiki/Blackcurrant (licence: voir la page)"
   },
   {
    "id": "book",
@@ -151,7 +1087,7 @@
    "ar": "كتاب",
    "fr": "livre",
    "en": "book",
-   "color": "#E2F5E2",
+   "color": "#EEEEEE",
    "credit": "Wikipedia - Book - https://en.wikipedia.org/wiki/Book (licence: voir la page)"
   },
   {
@@ -160,7 +1096,7 @@
    "ar": "كرسي",
    "fr": "chaise",
    "en": "chair",
-   "color": "#E2F5E2",
+   "color": "#EEEEEE",
    "credit": "Wikipedia - Chair - https://en.wikipedia.org/wiki/Chair (licence: voir la page)"
   },
   {
@@ -169,7 +1105,7 @@
    "ar": "منزل",
    "fr": "maison",
    "en": "house",
-   "color": "#E2F5E2",
+   "color": "#EEEEEE",
    "credit": "Wikipedia - House - https://en.wikipedia.org/wiki/House (licence: voir la page)"
   },
   {
@@ -178,7 +1114,7 @@
    "ar": "مفتاح",
    "fr": "clé",
    "en": "key",
-   "color": "#E2F5E2",
+   "color": "#EEEEEE",
    "credit": "Wikipedia - Windows key - https://en.wikipedia.org/wiki/Windows_key (licence: voir la page)"
   },
   {
@@ -187,35 +1123,323 @@
    "ar": "حذاء",
    "fr": "chaussure",
    "en": "shoe",
-   "color": "#E2F5E2",
+   "color": "#EEEEEE",
    "credit": "Wikipedia - Shoe - https://en.wikipedia.org/wiki/Shoe (licence: voir la page)"
   },
   {
-   "id": "moon",
-   "img": "images/moon.jpg",
-   "ar": "قمر",
-   "fr": "lune",
-   "en": "moon",
-   "color": "#D8F3F7",
-   "credit": "Wikipedia - Moon - https://en.wikipedia.org/wiki/Moon (licence: voir la page)"
+   "id": "ball",
+   "img": "images/ball.jpg",
+   "ar": "كرة",
+   "fr": "balle",
+   "en": "ball",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Ball - https://en.wikipedia.org/wiki/Ball (licence: voir la page)"
   },
   {
-   "id": "flower",
-   "img": "images/flower.jpg",
-   "ar": "ورد",
-   "fr": "fleur",
-   "en": "flower",
-   "color": "#D8F3F7",
-   "credit": "Wikipedia - Flower - https://en.wikipedia.org/wiki/Flower (licence: voir la page)"
+   "id": "doll",
+   "img": "images/doll.jpg",
+   "ar": "لعبة",
+   "fr": "poupée",
+   "en": "doll",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Doll - https://en.wikipedia.org/wiki/Doll (licence: voir la page)"
   },
   {
-   "id": "tree",
-   "img": "images/tree.jpg",
-   "ar": "شجرة",
-   "fr": "arbre",
-   "en": "tree",
-   "color": "#D8F3F7",
-   "credit": "Wikipedia - Tree - https://en.wikipedia.org/wiki/Tree (licence: voir la page)"
+   "id": "teddy_bear",
+   "img": "images/teddy_bear.jpg",
+   "ar": "دمية دب",
+   "fr": "ours en peluche",
+   "en": "teddy bear",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Teddy bear - https://en.wikipedia.org/wiki/Teddy_bear (licence: voir la page)"
+  },
+  {
+   "id": "crayon",
+   "img": "images/crayon.jpg",
+   "ar": "تلوين",
+   "fr": "crayon",
+   "en": "crayon",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Crayon - https://en.wikipedia.org/wiki/Crayon (licence: voir la page)"
+  },
+  {
+   "id": "pencil",
+   "img": "images/pencil.jpg",
+   "ar": "قلم رصاص",
+   "fr": "crayon",
+   "en": "pencil",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Pencil - https://en.wikipedia.org/wiki/Pencil (licence: voir la page)"
+  },
+  {
+   "id": "paper",
+   "img": "images/paper.jpg",
+   "ar": "ورق",
+   "fr": "papier",
+   "en": "paper",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Paper - https://en.wikipedia.org/wiki/Paper (licence: voir la page)"
+  },
+  {
+   "id": "table",
+   "img": "images/table.jpg",
+   "ar": "طاولة",
+   "fr": "tableau",
+   "en": "table",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Periodic table - https://en.wikipedia.org/wiki/Periodic_table (licence: voir la page)"
+  },
+  {
+   "id": "bed",
+   "img": "images/bed.jpg",
+   "ar": "سرير",
+   "fr": "lit",
+   "en": "bed",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Bed - https://en.wikipedia.org/wiki/Bed (licence: voir la page)"
+  },
+  {
+   "id": "pillow",
+   "img": "images/pillow.jpg",
+   "ar": "وسادة",
+   "fr": "oreiller",
+   "en": "pillow",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Pillow - https://en.wikipedia.org/wiki/Pillow (licence: voir la page)"
+  },
+  {
+   "id": "blanket",
+   "img": "images/blanket.jpg",
+   "ar": "بطانية",
+   "fr": "couverture",
+   "en": "blanket",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Blanket - https://en.wikipedia.org/wiki/Blanket (licence: voir la page)"
+  },
+  {
+   "id": "shirt",
+   "img": "images/shirt.jpg",
+   "ar": "قميص",
+   "fr": "chemise",
+   "en": "shirt",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Shirt - https://en.wikipedia.org/wiki/Shirt (licence: voir la page)"
+  },
+  {
+   "id": "pants",
+   "img": "images/pants.jpg",
+   "ar": "بنطال",
+   "fr": "pantalon",
+   "en": "pants",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Trousers - https://en.wikipedia.org/wiki/Trousers (licence: voir la page)"
+  },
+  {
+   "id": "socks",
+   "img": "images/socks.jpg",
+   "ar": "الجوارب",
+   "fr": "chaussettes",
+   "en": "socks",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Sock - https://en.wikipedia.org/wiki/Sock (licence: voir la page)"
+  },
+  {
+   "id": "hat",
+   "img": "images/hat.jpg",
+   "ar": "قبعة",
+   "fr": "chapeau",
+   "en": "hat",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Hat - https://en.wikipedia.org/wiki/Hat (licence: voir la page)"
+  },
+  {
+   "id": "coat",
+   "img": "images/coat.jpg",
+   "ar": "معطف",
+   "fr": "manteau",
+   "en": "coat",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Coat - https://en.wikipedia.org/wiki/Coat (licence: voir la page)"
+  },
+  {
+   "id": "cup",
+   "img": "images/cup.jpg",
+   "ar": "كوب",
+   "fr": "tasse",
+   "en": "cup",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Cup - https://en.wikipedia.org/wiki/Cup (licence: voir la page)"
+  },
+  {
+   "id": "plate",
+   "img": "images/plate.jpg",
+   "ar": "طبق",
+   "fr": "plaque",
+   "en": "plate",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Plate tectonics - https://en.wikipedia.org/wiki/Plate_tectonics (licence: voir la page)"
+  },
+  {
+   "id": "spoon",
+   "img": "images/spoon.jpg",
+   "ar": "ملعقة",
+   "fr": "cuillère",
+   "en": "spoon",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Spoon - https://en.wikipedia.org/wiki/Spoon (licence: voir la page)"
+  },
+  {
+   "id": "fork",
+   "img": "images/fork.jpg",
+   "ar": "شوكة",
+   "fr": "fourchette",
+   "en": "fork",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Fork - https://en.wikipedia.org/wiki/Fork (licence: voir la page)"
+  },
+  {
+   "id": "toothbrush",
+   "img": "images/toothbrush.jpg",
+   "ar": "فرشاة الأسنان",
+   "fr": "brosse à dents",
+   "en": "toothbrush",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Toothbrush - https://en.wikipedia.org/wiki/Toothbrush (licence: voir la page)"
+  },
+  {
+   "id": "towel",
+   "img": "images/towel.jpg",
+   "ar": "منشفة",
+   "fr": "serviette",
+   "en": "towel",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Towel - https://en.wikipedia.org/wiki/Towel (licence: voir la page)"
+  },
+  {
+   "id": "soap",
+   "img": "images/soap.jpg",
+   "ar": "صابون",
+   "fr": "savon",
+   "en": "soap",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Soap - https://en.wikipedia.org/wiki/Soap (licence: voir la page)"
+  },
+  {
+   "id": "comb",
+   "img": "images/comb.jpg",
+   "ar": "مشط",
+   "fr": "peigne",
+   "en": "comb",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Comb - https://en.wikipedia.org/wiki/Comb (licence: voir la page)"
+  },
+  {
+   "id": "backpack",
+   "img": "images/backpack.jpg",
+   "ar": "حقيبة ظهر",
+   "fr": "sac à dos",
+   "en": "backpack",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Backpack - https://en.wikipedia.org/wiki/Backpack (licence: voir la page)"
+  },
+  {
+   "id": "toy_car",
+   "img": "images/toy_car.jpg",
+   "ar": "لعبة سيارة",
+   "fr": "voiture jouet",
+   "en": "toy car",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Model car - https://en.wikipedia.org/wiki/Model_car (licence: voir la page)"
+  },
+  {
+   "id": "blocks",
+   "img": "images/blocks.jpg",
+   "ar": "كتل",
+   "fr": "blocs",
+   "en": "blocks",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Mirror Blocks - https://en.wikipedia.org/wiki/Mirror_Blocks (licence: voir la page)"
+  },
+  {
+   "id": "puzzle",
+   "img": "images/puzzle.jpg",
+   "ar": "لغز",
+   "fr": "puzzle",
+   "en": "puzzle",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Puzzle - https://en.wikipedia.org/wiki/Puzzle (licence: voir la page)"
+  },
+  {
+   "id": "balloon",
+   "img": "images/balloon.jpg",
+   "ar": "بالون",
+   "fr": "ballon",
+   "en": "balloon",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Balloon - https://en.wikipedia.org/wiki/Balloon (licence: voir la page)"
+  },
+  {
+   "id": "clock",
+   "img": "images/clock.jpg",
+   "ar": "ساعة",
+   "fr": "horloge",
+   "en": "clock",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Clock - https://en.wikipedia.org/wiki/Clock (licence: voir la page)"
+  },
+  {
+   "id": "mirror",
+   "img": "images/mirror.jpg",
+   "ar": "مرآة",
+   "fr": "miroir",
+   "en": "mirror",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Mirror - https://en.wikipedia.org/wiki/Mirror (licence: voir la page)"
+  },
+  {
+   "id": "window",
+   "img": "images/window.jpg",
+   "ar": "نافذة",
+   "fr": "fenêtre",
+   "en": "window",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Window - https://en.wikipedia.org/wiki/Window (licence: voir la page)"
+  },
+  {
+   "id": "door",
+   "img": "images/door.jpg",
+   "ar": "باب",
+   "fr": "porte",
+   "en": "door",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Door - https://en.wikipedia.org/wiki/Door (licence: voir la page)"
+  },
+  {
+   "id": "lamp",
+   "img": "images/lamp.jpg",
+   "ar": "خروف",
+   "fr": "lampe",
+   "en": "lamp",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Fluorescent lamp - https://en.wikipedia.org/wiki/Fluorescent_lamp (licence: voir la page)"
+  },
+  {
+   "id": "umbrella",
+   "img": "images/umbrella.jpg",
+   "ar": "مظلة",
+   "fr": "parapluie",
+   "en": "umbrella",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Umbrella - https://en.wikipedia.org/wiki/Umbrella (licence: voir la page)"
+  },
+  {
+   "id": "bag",
+   "img": "images/bag.jpg",
+   "ar": "شنطة",
+   "fr": "sac",
+   "en": "bag",
+   "color": "#EEEEEE",
+   "credit": "Wikipedia - Bag - https://en.wikipedia.org/wiki/Bag (licence: voir la page)"
   }
  ]
 }
