@@ -11,6 +11,12 @@ import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
 import android.text.InputType
 import android.view.Gravity
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.ScrollView
+import java.io.File
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.view.WindowManager
@@ -35,11 +41,30 @@ class MainActivity : FragmentActivity() {
     private var tts: TextToSpeech? = null
     private var gen = 0
     private val handler = Handler(Looper.getMainLooper())
+    private var resumed = false
+    private var ttsReady = false
+    private var speaking = false
+    private var spokenPos = -1
     private val auto = object : Runnable {
         override fun run() {
+            if (speaking) { handler.postDelayed(this, 1000); return }
             pager.currentItem = (pager.currentItem + 1) % Content.items.size
-            handler.postDelayed(this, 6000)
+            handler.postDelayed(this, 8000) // filet de sécurité si aucune voix n'est disponible
         }
+    }
+
+    /** Lit l'élément affiché, une seule fois par page. */
+    private fun speakCurrent() {
+        val p = pager.currentItem
+        if (!resumed || !ttsReady || spokenPos == p) return
+        spokenPos = p
+        Content.items.getOrNull(p)?.let { speak(it) }
+    }
+
+    private fun finished(my: Int) {
+        if (my != gen) return
+        speaking = false
+        if (resumed) { handler.removeCallbacks(auto); handler.postDelayed(auto, 1500) }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,6 +80,14 @@ class MainActivity : FragmentActivity() {
 
         Content.load(this)
         pager = ViewPager2(this).apply { adapter = newAdapter() }
+        pager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {      // la page change: on coupe tout de suite l'ancienne voix
+                gen++; speaking = false; spokenPos = -1; tts?.stop()
+            }
+            override fun onPageScrollStateChanged(state: Int) { // page stabilisée: on lit la bonne image
+                if (state == ViewPager2.SCROLL_STATE_IDLE) speakCurrent()
+            }
+        })
         val lock = TextView(this).apply {
             text = "🔒"; textSize = 28f; alpha = 0.35f; setPadding(40, 60, 40, 40)
             setOnLongClickListener { askExit(); true }   // appui long = sortie parent
@@ -68,7 +101,7 @@ class MainActivity : FragmentActivity() {
             override fun handleOnBackPressed() {} // Retour désactivé
         })
 
-        tts = TextToSpeech(this) { }
+        tts = TextToSpeech(this) { st -> if (st == TextToSpeech.SUCCESS) runOnUiThread { ttsReady = true; speakCurrent() } }
         if (Build.VERSION.SDK_INT >= 33)
             requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1)
         AlarmHelper.schedule(this, Config.HOUR, Config.MIN)
@@ -76,8 +109,11 @@ class MainActivity : FragmentActivity() {
         if (!PinStore.hasPin(this)) askNewPin() else startLock()
     }
 
-    override fun onResume() { super.onResume(); handler.postDelayed(auto, 6000) }
-    override fun onPause() { super.onPause(); handler.removeCallbacks(auto) }
+    override fun onResume() { super.onResume(); resumed = true; speakCurrent() }
+    override fun onPause() {
+        super.onPause(); resumed = false; gen++; speaking = false; spokenPos = -1
+        tts?.stop(); handler.removeCallbacks(auto)
+    }
     override fun onDestroy() { tts?.shutdown(); super.onDestroy() }
 
     private fun startLock() { try { startLockTask() } catch (_: Exception) {} }
@@ -92,12 +128,14 @@ class MainActivity : FragmentActivity() {
             if (w.length > 1) steps += Step(l, w.uppercase().toList().joinToString(", "), 0.6f) // lettre par lettre
         }
         val my = ++gen
+        speaking = true; handler.removeCallbacks(auto)
         tts?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
             override fun onStart(id: String?) {}
-            override fun onError(id: String?) {}
+            override fun onError(id: String?) { runOnUiThread { finished(my) } }
             override fun onDone(id: String?) {
                 val next = (id?.removePrefix("u")?.toIntOrNull() ?: return) + 1
-                if (my == gen && next < steps.size) runOnUiThread { say(steps, next, my) }
+                if (my != gen) return
+                if (next < steps.size) runOnUiThread { say(steps, next, my) } else runOnUiThread { finished(my) }
             }
         })
         say(steps, 0, my)
@@ -189,17 +227,92 @@ class MainActivity : FragmentActivity() {
     private fun toast(s: String) = Toast.makeText(this, s, Toast.LENGTH_LONG).show()
 
     private fun parentMenu() {
-        AlertDialog.Builder(this).setTitle("Espace parent")
-            .setItems(arrayOf(
-                "Mettre à jour le contenu (Internet)", "Adresse du pack", "Choisir la voix",
-                "Voix petite fille : " + if (prefs().getBoolean("girl", true)) "OUI → désactiver" else "NON → activer",
-                "Quitter l'application")) { _, w ->
-                when (w) {
-                    0 -> runImport(); 1 -> askUrl(); 2 -> pickVoice()
-                    3 -> { prefs().edit().putBoolean("girl", !prefs().getBoolean("girl", true)).apply(); parentMenu() }
-                    4 -> exitApp()
+        val labels = arrayOf(
+            "➕ Ajouter un objet (saisir + générer)", "🗑 Mes objets ajoutés", "Mettre à jour le contenu (Internet)",
+            "Adresse du pack", "Choisir la voix",
+            "Voix petite fille : " + if (prefs().getBoolean("girl", true)) "OUI → désactiver" else "NON → activer",
+            "Quitter l'application")
+        AlertDialog.Builder(this).setTitle("Espace parent").setItems(labels) { _, w ->
+            when (w) {
+                0 -> askObject(); 1 -> manageObjects(); 2 -> runImport(); 3 -> askUrl(); 4 -> pickVoice()
+                5 -> { prefs().edit().putBoolean("girl", !prefs().getBoolean("girl", true)).apply(); parentMenu() }
+                6 -> exitApp()
+            }
+        }.show()
+    }
+
+    // ---- Saisir et générer un objet ----
+    private fun askObject() {
+        fun field(h: String) = EditText(this).apply { hint = h; inputType = InputType.TYPE_CLASS_TEXT }
+        val fr = field("Français (ex: pomme)")
+        val en = field("English (ex: apple)")
+        val ar = field("العربية").apply { textDirection = View.TEXT_DIRECTION_RTL }
+        val note = TextView(this).apply {
+            text = "Remplis un seul champ : les deux autres sont traduits automatiquement, puis une image est cherchée sur Internet. " +
+                "Pour une meilleure image, écris le mot en anglais."
+            setPadding(0, 0, 0, 24)
+        }
+        val box = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL; setPadding(48, 24, 48, 0)
+            listOf(note, fr, en, ar).forEach { addView(it) }
+        }
+        AlertDialog.Builder(this).setTitle("Nouvel objet").setView(ScrollView(this).apply { addView(box) })
+            .setPositiveButton("Générer") { _, _ ->
+                val a = ar.text.toString().trim(); val f = fr.text.toString().trim(); val e = en.text.toString().trim()
+                if (a.isEmpty() && f.isEmpty() && e.isEmpty()) toast("Saisis au moins un mot") else generateObject(a, f, e)
+            }.setNegativeButton("Annuler", null).show()
+    }
+
+    private fun generateObject(ar: String, fr: String, en: String) {
+        toast("Traduction et recherche d'image…")
+        Thread {
+            val r = runCatching {
+                val w = ObjectGenerator.complete(ar, fr, en)
+                w to ObjectGenerator.search(w.third)
+            }
+            runOnUiThread {
+                r.onSuccess { (w, cands) ->
+                    if (cands.isEmpty()) toast("Aucune image trouvée pour « ${w.third} ». Essaie un autre mot anglais.")
+                    else previewObject(w.first, w.second, w.third, cands, 0)
+                }.onFailure { toast("Échec : ${it.message}") }
+            }
+        }.start()
+    }
+
+    private fun previewObject(ar: String, fr: String, en: String, cands: List<ObjectGenerator.Candidate>, idx: Int) {
+        if (idx >= cands.size) { toast("Plus d'autres images pour « $en »"); return }
+        Thread {
+            val bmp = ObjectGenerator.download(cands[idx].url)
+            runOnUiThread {
+                if (bmp == null) { previewObject(ar, fr, en, cands, idx + 1); return@runOnUiThread }
+                val iv = ImageView(this).apply {
+                    setImageBitmap(bmp); scaleType = ImageView.ScaleType.FIT_CENTER
+                    layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, (280 * resources.displayMetrics.density).toInt())
                 }
-            }.show()
+                AlertDialog.Builder(this).setTitle("$ar · $fr · $en").setView(iv)
+                    .setPositiveButton("Ajouter") { _, _ ->
+                        ObjectGenerator.add(this, ar, fr, en, bmp, cands[idx].credit)
+                        Content.load(this); pager.adapter = newAdapter()
+                        pager.setCurrentItem(Content.items.size - 1, false)
+                        toast("Objet ajouté")
+                    }
+                    .setNeutralButton("Autre image") { _, _ -> previewObject(ar, fr, en, cands, idx + 1) }
+                    .setNegativeButton("Annuler", null).show()
+            }
+        }.start()
+    }
+
+    private fun manageObjects() {
+        val mine = Content.items.filter { it.imagePath?.contains("/custom/") == true }
+        if (mine.isEmpty()) { toast("Aucun objet ajouté pour l'instant"); return }
+        AlertDialog.Builder(this).setTitle("Touche un objet pour le supprimer")
+            .setItems(mine.map { "${it.fr} · ${it.en} · ${it.ar}" }.toTypedArray()) { _, i ->
+                AlertDialog.Builder(this).setTitle("Supprimer « ${mine[i].fr} » ?")
+                    .setPositiveButton("Supprimer") { _, _ ->
+                        ObjectGenerator.remove(this, File(mine[i].imagePath!!).nameWithoutExtension)
+                        Content.load(this); pager.adapter = newAdapter(); toast("Supprimé")
+                    }.setNegativeButton("Annuler", null).show()
+            }.setNegativeButton("Fermer", null).show()
     }
 
     private fun runImport() {

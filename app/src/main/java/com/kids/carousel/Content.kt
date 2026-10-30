@@ -9,22 +9,19 @@ data class Item(val symbol: String, val ar: String, val fr: String, val en: Stri
 object Content {
     var items: List<Item> = emptyList()
 
-    /** Contenu intégré + pack importé depuis Internet (si présent). */
-    fun load(c: Context) {
-        val imported = runCatching {
-            val dir = File(c.filesDir, "pack")
-            val arr = JSONObject(File(dir, "items.json").readText()).getJSONArray("items")
-            (0 until arr.length()).map { arr.getJSONObject(it) }.mapNotNull { o ->
-                val f = File(dir, o.getString("img"))
-                if (!f.exists()) null
-                else Item("", o.getString("ar"), o.getString("fr"), o.getString("en"),
-                    o.optString("color", "#EEEEEE"), f.path)
-            }
-        }.getOrDefault(emptyList())
-        items = builtIn + imported
-    }
+    private fun readDir(c: Context, name: String): List<Item> = runCatching {
+        val dir = File(c.filesDir, name)
+        val arr = JSONObject(File(dir, "items.json").readText()).getJSONArray("items")
+        (0 until arr.length()).map { arr.getJSONObject(it) }.mapNotNull { o ->
+            val f = File(dir, o.getString("img"))
+            if (!f.exists()) null
+            else Item("", o.getString("ar"), o.getString("fr"), o.getString("en"), o.optString("color", "#EEEEEE"), f.path)
+        }
+    }.getOrDefault(emptyList())
 
-    // Pour utiliser de vraies images: remplace `symbol` par un id drawable et affiche-le dans un ImageView.
+    /** Contenu intégré + pack Internet + objets ajoutés par le parent. */
+    fun load(c: Context) { items = builtIn + readDir(c, "pack") + readDir(c, "custom") }
+
     val builtIn = listOf(
         Item("🍎", "تفاحة", "pomme", "apple", "#FFE0E0"),
         Item("🐱", "قطة", "chat", "cat", "#FFF2CC"),
