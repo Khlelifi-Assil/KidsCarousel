@@ -17,8 +17,10 @@ object AlarmHelper {
         val trigger = PendingIntent.getBroadcast(c, 1, Intent(c, LaunchReceiver::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         val show = PendingIntent.getActivity(c, 2, Intent(c, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
-        c.getSystemService(AlarmManager::class.java)
-            .setAlarmClock(AlarmManager.AlarmClockInfo(cal.timeInMillis, show), trigger)
+        try {
+            c.getSystemService(AlarmManager::class.java)
+                .setAlarmClock(AlarmManager.AlarmClockInfo(cal.timeInMillis, show), trigger)
+        } catch (_: SecurityException) { /* permission refusée: l'app ne plante plus, le lancement auto est juste désactivé */ }
     }
 }
 
