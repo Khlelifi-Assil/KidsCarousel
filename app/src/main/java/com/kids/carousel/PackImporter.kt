@@ -58,11 +58,12 @@ object PackImporter {
                 val (text, url) = getJson(normalize(rawUrl))
                 val t = text.trim().trimStart('\uFEFF')                      // BOM éventuel
                 if (t.startsWith("<")) error("L'adresse renvoie une page web, pas le fichier JSON. Utilise le bouton « Raw » sur GitHub, ou colle l'adresse du dépôt.")
-                val arr: JSONArray = try {
-                    if (t.startsWith("[")) JSONArray(t) else JSONObject(t).getJSONArray("items")
+                val root: JSONObject = try {
+                    if (t.startsWith("[")) JSONObject().put("items", JSONArray(t)) else JSONObject(t)
                 } catch (e: JSONException) {
                     error("JSON invalide ou sans liste « items » (${e.message})")
                 }
+                val arr: JSONArray = root.optJSONArray("items") ?: error("Le fichier ne contient pas de liste « items ».")
                 val base = url.substringBeforeLast('/') + "/"
                 val dir = File(c.filesDir, "pack").apply { File(this, "images").mkdirs() }
                 var ok = 0; var missing = 0
@@ -72,13 +73,14 @@ object PackImporter {
                     val dest = File(dir, img)
                     if (dest.isFile) { ok++; continue }
                     val got = runCatching {
+                        dest.parentFile?.mkdirs()
                         val tmp = File(dest.path + ".tmp")
                         tmp.writeBytes(getBytes(base + img)); tmp.renameTo(dest)
                     }.isSuccess
                     if (got) ok++ else missing++
                 }
                 if (ok == 0) error("Aucune image n'a pu être téléchargée (${arr.length()} éléments dans le fichier).")
-                File(dir, "items.json").writeText(JSONObject().put("items", arr).toString())
+                File(dir, "items.json").writeText(root.toString())      // garde aussi les catégories
                 Content.load(c)
                 "$ok éléments importés" + if (missing > 0) " ($missing ignorés : image introuvable)" else ""
             })

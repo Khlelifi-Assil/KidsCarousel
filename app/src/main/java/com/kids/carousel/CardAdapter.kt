@@ -7,6 +7,12 @@ import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
 import android.os.Handler
 import android.os.Looper
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.util.LruCache
 import android.util.TypedValue
 import android.view.Gravity
@@ -20,20 +26,27 @@ import androidx.core.graphics.ColorUtils
 import androidx.recyclerview.widget.RecyclerView
 import java.util.concurrent.Executors
 
-/** Carte: fond dégradé de la couleur du thème, carte blanche arrondie avec ombre, pastille de catégorie,
- *  compteur, grande image/emoji dans un cadre coloré, puis les 3 langues avec leur épellation. */
+/** Carte: fond dégradé du thème, carte blanche arrondie, pastille de catégorie, compteur,
+ *  grande image (PNG transparent) ou emoji, puis les langues de la carte avec leur épellation.
+ *  highlight() colore la lettre en cours d'épellation. */
 class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Unit) :
     RecyclerView.Adapter<CardAdapter.VH>() {
 
-    class Row(val tag: TextView, val name: TextView, val spell: TextView, val group: LinearLayout)
+    class Row(val tag: TextView, val name: TextView, val spell: TextView, val group: LinearLayout) {
+        var plain: String = ""
+    }
+
     class VH(val page: FrameLayout, val chip: TextView, val counter: TextView, val frame: FrameLayout,
-             val symbol: TextView, val img: ImageView, val rows: List<Row>) : RecyclerView.ViewHolder(page)
+             val symbol: TextView, val img: ImageView, val rows: List<Row>) : RecyclerView.ViewHolder(page) {
+        var accent: Int = Color.GRAY
+    }
 
     private val io = Executors.newFixedThreadPool(2)
     private val main = Handler(Looper.getMainLooper())
-    private val cache = LruCache<String, Bitmap>(10)
+    private val cache = LruCache<String, Bitmap>(12)
     private val MATCH = ViewGroup.LayoutParams.MATCH_PARENT
     private val WRAP = ViewGroup.LayoutParams.WRAP_CONTENT
+    private val TEXT = Color.parseColor("#263238")
 
     private fun lp(w: Int, h: Int, weight: Float = 0f) = LinearLayout.LayoutParams(w, h, weight)
     private fun rounded(color: Int, radius: Float) = GradientDrawable().apply { setColor(color); cornerRadius = radius }
@@ -52,7 +65,7 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
 
         val page = FrameLayout(ctx).apply {
             layoutParams = ViewGroup.LayoutParams(MATCH, MATCH)
-            setPadding(dp(16), dp(76), dp(16), dp(24))   // place en haut pour le cadenas 🔒
+            setPadding(dp(16), dp(76), dp(16), dp(24))   // place en haut pour 🏠 et 🔒
         }
         val card = LinearLayout(ctx).apply {
             orientation = LinearLayout.VERTICAL
@@ -73,7 +86,7 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
         }, lp(MATCH, WRAP))
 
         val symbol = TextView(ctx).apply { gravity = Gravity.CENTER; typeface = Typeface.DEFAULT_BOLD }
-        val img = ImageView(ctx).apply { scaleType = ImageView.ScaleType.CENTER_CROP }
+        val img = ImageView(ctx)
         val frame = FrameLayout(ctx).apply {
             clipToOutline = true
             addView(symbol, FrameLayout.LayoutParams(MATCH, WRAP, Gravity.CENTER))
@@ -88,12 +101,12 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
             }
             val name = TextView(ctx).apply {
                 gravity = Gravity.CENTER; typeface = Typeface.DEFAULT_BOLD; maxLines = 1
-                setTextColor(Color.parseColor("#263238"))
+                setTextColor(TEXT)
                 if (rtl) textDirection = View.TEXT_DIRECTION_RTL
                 setAutoSizeTextTypeUniformWithConfiguration(18, maxSp, 1, TypedValue.COMPLEX_UNIT_SP)
             }
             val spell = TextView(ctx).apply {
-                gravity = Gravity.CENTER; textSize = 15f; letterSpacing = 0.12f; maxLines = 2
+                gravity = Gravity.CENTER; textSize = 16f; letterSpacing = 0.12f; maxLines = 2
                 setTextColor(Color.parseColor("#78909C"))
                 if (rtl) textDirection = View.TEXT_DIRECTION_RTL
             }
@@ -117,17 +130,41 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
         return if (l.size < 2) "" else l.joinToString(if (ar) " " else "-")
     }
 
+    private val codes = listOf("ar", "fr", "en")
+
+    /** row: 0=AR 1=FR 2=EN, -1 = rien. idx: -2 = mot en cours (nom coloré), >=0 = lettre en cours, -1 = rien. */
+    fun highlight(h: VH, row: Int, idx: Int) {
+        val dark = ColorUtils.blendARGB(h.accent, Color.BLACK, 0.25f)
+        for (r in 0..2) {
+            val rw = h.rows[r]
+            rw.name.setTextColor(if (r == row && idx == -2) dark else TEXT)
+            if (rw.plain.isEmpty()) continue
+            val s = idx * 2   // lettres séparées par un caractère ("P-O-M" ou "ت ف ا")
+            if (r == row && idx >= 0 && s < rw.plain.length) {
+                val sp = SpannableString(rw.plain)
+                val fl = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                sp.setSpan(BackgroundColorSpan(h.accent), s, s + 1, fl)
+                sp.setSpan(ForegroundColorSpan(Color.WHITE), s, s + 1, fl)
+                sp.setSpan(StyleSpan(Typeface.BOLD), s, s + 1, fl)
+                sp.setSpan(RelativeSizeSpan(1.4f), s, s + 1, fl)
+                rw.spell.text = sp
+            } else rw.spell.text = rw.plain
+        }
+    }
+
     override fun onBindViewHolder(h: VH, i: Int) {
         val item = items[i]
         val d = h.page.resources.displayMetrics.density
         val base = runCatching { Color.parseColor(item.color) }.getOrDefault(Color.parseColor("#EEEEEE"))
         val accent = accentOf(base)
+        h.accent = accent
 
         h.page.background = GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, intArrayOf(
             ColorUtils.blendARGB(accent, Color.WHITE, 0.45f), ColorUtils.blendARGB(accent, Color.WHITE, 0.75f)))
         h.frame.background = rounded(base, 28 * d)
-        h.chip.visibility = if (item.cat.isBlank()) View.INVISIBLE else View.VISIBLE
-        h.chip.text = item.cat
+        val label = Content.label(item.cat)
+        h.chip.visibility = if (label.isBlank()) View.INVISIBLE else View.VISIBLE
+        h.chip.text = label
         h.chip.setTextColor(ColorUtils.blendARGB(accent, Color.BLACK, 0.3f))
         h.chip.background = rounded(base, 20 * d)
         h.counter.text = "${i + 1} / $itemCount"
@@ -135,12 +172,15 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
         val texts = listOf(item.ar, item.fr, item.en)
         for (r in 0..2) {
             val row = h.rows[r]
+            val shown = codes[r] in item.langs && texts[r].isNotBlank()
+            row.group.visibility = if (shown) View.VISIBLE else View.GONE
             row.name.text = texts[r]
             row.tag.background = rounded(accent, 10 * d)
-            val sp = if (item.spell) spell(texts[r], r == 0) else ""
-            row.spell.text = sp
-            row.spell.visibility = if (sp.isEmpty()) View.GONE else View.VISIBLE
+            row.plain = if (shown && item.spell) spell(texts[r], r == 0) else ""
+            row.spell.text = row.plain
+            row.spell.visibility = if (row.plain.isEmpty()) View.GONE else View.VISIBLE
         }
+        highlight(h, -1, -1)
         h.page.setOnClickListener { onTap(item) }
 
         val path = item.imagePath
@@ -151,6 +191,10 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
             h.symbol.setTextColor(accent)
         } else {
             h.symbol.visibility = View.GONE; h.img.visibility = View.VISIBLE
+            val png = path.endsWith(".png")      // PNG détouré: on montre l'objet entier, sans le rogner
+            h.img.scaleType = if (png) ImageView.ScaleType.FIT_CENTER else ImageView.ScaleType.CENTER_CROP
+            val pad = if (png) (14 * d).toInt() else 0
+            h.img.setPadding(pad, pad, pad, pad)
             h.img.tag = path
             val cached = cache.get(path)
             if (cached != null) h.img.setImageBitmap(cached)
