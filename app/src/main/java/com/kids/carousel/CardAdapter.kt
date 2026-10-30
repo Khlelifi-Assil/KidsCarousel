@@ -50,8 +50,10 @@ class CardAdapter(private val items: List<Item>, private val onTap: (Item) -> Un
         return VH(root, img, s, a, f, e)
     }
 
-    private fun spell(w: String, ar: Boolean) =
-        if (w.length < 2) "" else "\n" + w.toList().joinToString(if (ar) " " else "-") { if (ar) it.toString() else it.uppercase() }
+    private fun spell(w: String, ar: Boolean): String {
+        val l = if (ar) ArabicSpell.letters(w).map { it.toString() } else w.filter { it.isLetter() }.map { it.uppercase() }
+        return if (l.size < 2) "" else "\n" + l.joinToString(if (ar) " " else "-")
+    }
 
     override fun onBindViewHolder(h: VH, i: Int) {
         val it = items[i]

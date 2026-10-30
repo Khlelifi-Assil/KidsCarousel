@@ -125,7 +125,12 @@ class MainActivity : FragmentActivity() {
         val steps = mutableListOf<Step>()
         listOf(Locale("ar") to item.ar, Locale.FRENCH to item.fr, Locale.ENGLISH to item.en).forEach { (l, w) ->
             steps += Step(l, w, 0.9f)
-            if (w.length > 1) steps += Step(l, w.uppercase().toList().joinToString(", "), 0.6f) // lettre par lettre
+            if (l.language == "ar") {
+                if (ArabicSpell.letters(w).size > 1) steps += Step(l, ArabicSpell.spokenNames(w), 0.75f)
+            } else {
+                val ls = w.filter { it.isLetter() }
+                if (ls.length > 1) steps += Step(l, ls.uppercase().toList().joinToString(", "), 0.6f)
+            }
         }
         val my = ++gen
         speaking = true; handler.removeCallbacks(auto)
@@ -228,7 +233,7 @@ class MainActivity : FragmentActivity() {
 
     private fun parentMenu() {
         val labels = arrayOf(
-            "➕ Ajouter un objet (saisir + générer)", "🗑 Mes objets ajoutés", "Mettre à jour le contenu (Internet)",
+            "➕ Ajouter des objets (une ligne = un objet)", "🗑 Mes objets ajoutés", "Mettre à jour le contenu (Internet)",
             "Adresse du pack", "Choisir la voix",
             "Voix petite fille : " + if (prefs().getBoolean("girl", true)) "OUI → désactiver" else "NON → activer",
             "Quitter l'application")
@@ -241,26 +246,87 @@ class MainActivity : FragmentActivity() {
         }.show()
     }
 
-    // ---- Saisir et générer un objet ----
+    // ---- Saisir et générer des objets (une ligne = un objet) ----
+    private data class Entry(val ar: String, val fr: String, val en: String)
+
+    private fun hasArabic(s: String) = s.any { it in '\u0600'..'\u06FF' }
+
+    private fun parseLines(text: String, singleIsEnglish: Boolean): List<Entry> =
+        text.lines().map { it.trim() }.filter { it.isNotEmpty() }.map { line ->
+            val p = line.split("|").map { it.trim() }
+            if (p.size == 1) when {
+                hasArabic(p[0]) -> Entry(p[0], "", "")
+                singleIsEnglish -> Entry("", "", p[0])
+                else -> Entry("", p[0], "")
+            } else Entry(ar = p.getOrElse(2) { "" }, fr = p[0], en = p.getOrElse(1) { "" })
+        }.filter { it.ar.isNotEmpty() || it.fr.isNotEmpty() || it.en.isNotEmpty() }
+
     private fun askObject() {
-        fun field(h: String) = EditText(this).apply { hint = h; inputType = InputType.TYPE_CLASS_TEXT }
-        val fr = field("Français (ex: pomme)")
-        val en = field("English (ex: apple)")
-        val ar = field("العربية").apply { textDirection = View.TEXT_DIRECTION_RTL }
+        val input = EditText(this).apply {
+            hint = "apple\nchat | cat\nvoiture | car | سيارة\nقطة"
+            minLines = 7; gravity = Gravity.TOP
+            inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+        }
+        val rbEn = android.widget.RadioButton(this).apply { text = "English"; id = View.generateViewId(); isChecked = true }
+        val rbFr = android.widget.RadioButton(this).apply { text = "Français"; id = View.generateViewId() }
+        val rg = android.widget.RadioGroup(this).apply { orientation = LinearLayout.HORIZONTAL; addView(rbEn); addView(rbFr) }
         val note = TextView(this).apply {
-            text = "Remplis un seul champ : les deux autres sont traduits automatiquement, puis une image est cherchée sur Internet. " +
-                "Pour une meilleure image, écris le mot en anglais."
-            setPadding(0, 0, 0, 24)
+            text = "Une ligne = un objet.\n• Mot seul : traduit automatiquement (langue des mots seuls ci-dessous ; l'arabe est reconnu tout seul).\n" +
+                "• Ou : français | english | عربي (un champ peut rester vide).\n" +
+                "• Plusieurs lignes : la première image trouvée est ajoutée automatiquement."
+            setPadding(0, 0, 0, 16)
         }
         val box = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL; setPadding(48, 24, 48, 0)
-            listOf(note, fr, en, ar).forEach { addView(it) }
+            listOf(note, rg, input).forEach { addView(it) }
         }
-        AlertDialog.Builder(this).setTitle("Nouvel objet").setView(ScrollView(this).apply { addView(box) })
+        AlertDialog.Builder(this).setTitle("Nouveaux objets").setView(ScrollView(this).apply { addView(box) })
             .setPositiveButton("Générer") { _, _ ->
-                val a = ar.text.toString().trim(); val f = fr.text.toString().trim(); val e = en.text.toString().trim()
-                if (a.isEmpty() && f.isEmpty() && e.isEmpty()) toast("Saisis au moins un mot") else generateObject(a, f, e)
+                val list = parseLines(input.text.toString(), rbEn.isChecked)
+                when {
+                    list.isEmpty() -> toast("Saisis au moins un mot")
+                    list.size == 1 -> generateObject(list[0].ar, list[0].fr, list[0].en) // aperçu + choix de l'image
+                    else -> bulkAdd(list)
+                }
             }.setNegativeButton("Annuler", null).show()
+    }
+
+    private fun bulkAdd(entries: List<Entry>) {
+        val msg = TextView(this).apply { setPadding(48, 32, 48, 0); textSize = 18f }
+        val cancel = java.util.concurrent.atomic.AtomicBoolean(false)
+        val dlg = AlertDialog.Builder(this).setTitle("Génération en cours…").setView(msg).setCancelable(false)
+            .setNegativeButton("Arrêter") { _, _ -> cancel.set(true) }.create()
+        dlg.show()
+        Thread {
+            var ok = 0
+            val failed = mutableListOf<String>()
+            for ((i, e) in entries.withIndex()) {
+                if (cancel.get()) break
+                val label = e.en.ifBlank { e.fr }.ifBlank { e.ar }
+                runOnUiThread { msg.text = "${i + 1} / ${entries.size}\n$label" }
+                val r = runCatching {
+                    val w = ObjectGenerator.complete(e.ar, e.fr, e.en)
+                    var bmp: android.graphics.Bitmap? = null
+                    var credit = ""
+                    for (c in ObjectGenerator.search(w.third).take(5)) {
+                        bmp = ObjectGenerator.download(c.url)
+                        if (bmp != null) { credit = c.credit; break }
+                    }
+                    ObjectGenerator.add(this, w.first, w.second, w.third, bmp ?: error("aucune image"), credit)
+                }
+                if (r.isSuccess) ok++ else failed += "$label (${r.exceptionOrNull()?.message})"
+                Thread.sleep(800)
+            }
+            runOnUiThread {
+                dlg.dismiss()
+                Content.load(this); pager.adapter = newAdapter()
+                if (ok > 0) pager.setCurrentItem(Content.items.size - ok, false)
+                AlertDialog.Builder(this).setTitle("$ok objet(s) ajouté(s)")
+                    .setMessage(if (failed.isEmpty()) "Tout est passé. Vérifie les images en les faisant défiler ; supprime les mauvaises dans « Mes objets »."
+                                else "Échecs :\n" + failed.joinToString("\n"))
+                    .setPositiveButton("OK", null).show()
+            }
+        }.start()
     }
 
     private fun generateObject(ar: String, fr: String, en: String) {

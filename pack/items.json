@@ -1,0 +1,221 @@
+{
+ "version": 1793361695,
+ "items": [
+  {
+   "id": "banana",
+   "img": "images/banana.jpg",
+   "ar": "موز",
+   "fr": "banane",
+   "en": "banana",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - United Fruit Company - https://en.wikipedia.org/wiki/United_Fruit_Company (licence: voir la page)"
+  },
+  {
+   "id": "orange",
+   "img": "images/orange.jpg",
+   "ar": "البرتقالي",
+   "fr": "orange",
+   "en": "orange",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Orange (fruit) - https://en.wikipedia.org/wiki/Orange_%28fruit%29 (licence: voir la page)"
+  },
+  {
+   "id": "strawberry",
+   "img": "images/strawberry.jpg",
+   "ar": "الفراولة",
+   "fr": "fraise",
+   "en": "strawberry",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Strawberry - https://en.wikipedia.org/wiki/Strawberry (licence: voir la page)"
+  },
+  {
+   "id": "grapes",
+   "img": "images/grapes.jpg",
+   "ar": "العنب",
+   "fr": "raisins",
+   "en": "grapes",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Grape - https://en.wikipedia.org/wiki/Grape (licence: voir la page)"
+  },
+  {
+   "id": "watermelon",
+   "img": "images/watermelon.jpg",
+   "ar": "بطيخ",
+   "fr": "pastèque",
+   "en": "watermelon",
+   "color": "#FFE0E0",
+   "credit": "Wikipedia - Watermelon - https://en.wikipedia.org/wiki/Watermelon (licence: voir la page)"
+  },
+  {
+   "id": "dog",
+   "img": "images/dog.jpg",
+   "ar": "كلب",
+   "fr": "chien",
+   "en": "dog",
+   "color": "#FFF2CC",
+   "credit": "Wikipedia - Dog - https://en.wikipedia.org/wiki/Dog (licence: voir la page)"
+  },
+  {
+   "id": "horse",
+   "img": "images/horse.jpg",
+   "ar": "حصان",
+   "fr": "cheval",
+   "en": "horse",
+   "color": "#FFF2CC",
+   "credit": "Wikipedia - Horse - https://en.wikipedia.org/wiki/Horse (licence: voir la page)"
+  },
+  {
+   "id": "cow",
+   "img": "images/cow.jpg",
+   "ar": "بقرة",
+   "fr": "vache",
+   "en": "cow",
+   "color": "#FFF2CC",
+   "credit": "Wikipedia - Cattle - https://en.wikipedia.org/wiki/Cattle (licence: voir la page)"
+  },
+  {
+   "id": "bird",
+   "img": "images/bird.jpg",
+   "ar": "طائر",
+   "fr": "oiseau",
+   "en": "bird",
+   "color": "#FFF2CC",
+   "credit": "Wikipedia - Bird - https://en.wikipedia.org/wiki/Bird (licence: voir la page)"
+  },
+  {
+   "id": "rabbit",
+   "img": "images/rabbit.jpg",
+   "ar": "أرنب",
+   "fr": "lapin",
+   "en": "rabbit",
+   "color": "#FFF2CC",
+   "credit": "Wikipedia - Rabbit - https://en.wikipedia.org/wiki/Rabbit (licence: voir la page)"
+  },
+  {
+   "id": "elephant",
+   "img": "images/elephant.jpg",
+   "ar": "فيل",
+   "fr": "éléphant",
+   "en": "elephant",
+   "color": "#FFF2CC",
+   "credit": "Wikipedia - Elephant - https://en.wikipedia.org/wiki/Elephant (licence: voir la page)"
+  },
+  {
+   "id": "bus",
+   "img": "images/bus.jpg",
+   "ar": "حافلة",
+   "fr": "bus",
+   "en": "bus",
+   "color": "#DDEBFF",
+   "credit": "Wikipedia - Transit bus - https://en.wikipedia.org/wiki/Transit_bus (licence: voir la page)"
+  },
+  {
+   "id": "train",
+   "img": "images/train.jpg",
+   "ar": "يدرب",
+   "fr": "former",
+   "en": "train",
+   "color": "#DDEBFF",
+   "credit": "Wikipedia - Train - https://en.wikipedia.org/wiki/Train (licence: voir la page)"
+  },
+  {
+   "id": "airplane",
+   "img": "images/airplane.jpg",
+   "ar": "طائرة",
+   "fr": "avion",
+   "en": "airplane",
+   "color": "#DDEBFF",
+   "credit": "Wikipedia - Airplane - https://en.wikipedia.org/wiki/Airplane (licence: voir la page)"
+  },
+  {
+   "id": "bicycle",
+   "img": "images/bicycle.jpg",
+   "ar": "دراجة",
+   "fr": "vélo",
+   "en": "bicycle",
+   "color": "#DDEBFF",
+   "credit": "Wikipedia - Bicycle - https://en.wikipedia.org/wiki/Bicycle (licence: voir la page)"
+  },
+  {
+   "id": "boat",
+   "img": "images/boat.jpg",
+   "ar": "قارب",
+   "fr": "bateau",
+   "en": "boat",
+   "color": "#DDEBFF",
+   "credit": "Wikipedia - Boat - https://en.wikipedia.org/wiki/Boat (licence: voir la page)"
+  },
+  {
+   "id": "book",
+   "img": "images/book.jpg",
+   "ar": "كتاب",
+   "fr": "livre",
+   "en": "book",
+   "color": "#E2F5E2",
+   "credit": "Wikipedia - Book - https://en.wikipedia.org/wiki/Book (licence: voir la page)"
+  },
+  {
+   "id": "chair",
+   "img": "images/chair.jpg",
+   "ar": "كرسي",
+   "fr": "chaise",
+   "en": "chair",
+   "color": "#E2F5E2",
+   "credit": "Wikipedia - Chair - https://en.wikipedia.org/wiki/Chair (licence: voir la page)"
+  },
+  {
+   "id": "house",
+   "img": "images/house.jpg",
+   "ar": "منزل",
+   "fr": "maison",
+   "en": "house",
+   "color": "#E2F5E2",
+   "credit": "Wikipedia - House - https://en.wikipedia.org/wiki/House (licence: voir la page)"
+  },
+  {
+   "id": "key",
+   "img": "images/key.jpg",
+   "ar": "مفتاح",
+   "fr": "clé",
+   "en": "key",
+   "color": "#E2F5E2",
+   "credit": "Wikipedia - Windows key - https://en.wikipedia.org/wiki/Windows_key (licence: voir la page)"
+  },
+  {
+   "id": "shoe",
+   "img": "images/shoe.jpg",
+   "ar": "حذاء",
+   "fr": "chaussure",
+   "en": "shoe",
+   "color": "#E2F5E2",
+   "credit": "Wikipedia - Shoe - https://en.wikipedia.org/wiki/Shoe (licence: voir la page)"
+  },
+  {
+   "id": "moon",
+   "img": "images/moon.jpg",
+   "ar": "قمر",
+   "fr": "lune",
+   "en": "moon",
+   "color": "#D8F3F7",
+   "credit": "Wikipedia - Moon - https://en.wikipedia.org/wiki/Moon (licence: voir la page)"
+  },
+  {
+   "id": "flower",
+   "img": "images/flower.jpg",
+   "ar": "ورد",
+   "fr": "fleur",
+   "en": "flower",
+   "color": "#D8F3F7",
+   "credit": "Wikipedia - Flower - https://en.wikipedia.org/wiki/Flower (licence: voir la page)"
+  },
+  {
+   "id": "tree",
+   "img": "images/tree.jpg",
+   "ar": "شجرة",
+   "fr": "arbre",
+   "en": "tree",
+   "color": "#D8F3F7",
+   "credit": "Wikipedia - Tree - https://en.wikipedia.org/wiki/Tree (licence: voir la page)"
+  }
+ ]
+}
