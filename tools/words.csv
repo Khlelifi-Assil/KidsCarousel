@@ -1,161 +1,25 @@
 en,fr,ar,category,query
-dog,,,animals,dog animal
-cat,,,animals,cat animal
-rabbit,,,animals,rabbit animal
-hamster,,,animals,hamster animal
-mouse,,,animals,mouse animal
-squirrel,,,animals,squirrel animal
-fox,,,animals,fox animal
-bear,,,animals,bear animal
-lion,,,animals,lion animal
-tiger,,,animals,tiger animal
-elephant,,,animals,elephant animal
-giraffe,,,animals,giraffe animal
-zebra,,,animals,zebra animal
-monkey,,,animals,monkey animal
-panda,,,animals,panda animal
-kangaroo,,,animals,kangaroo animal
-hippo,,,animals,hippo animal
-horse,,,animals,horse animal
-cow,,,animals,cow animal
-pig,,,animals,pig animal
-sheep,,,animals,sheep animal
-goat,,,animals,goat animal
-chicken,,,animals,chicken animal
-duck,,,animals,duck animal
-penguin,,,animals,penguin animal
-dolphin,,,animals,dolphin animal
-whale,,,animals,whale animal
-turtle,,,animals,turtle animal
-frog,,,animals,frog animal
-butterfly,,,animals,butterfly animal
-bee,,,animals,bee animal
-ladybug,,,animals,ladybug animal
-snail,,,animals,snail animal
-owl,,,animals,owl animal
-parrot,,,animals,parrot animal
-fish,,,animals,fish animal
-shark,,,animals,shark animal
-octopus,,,animals,octopus animal
-crab,,,animals,crab animal
-starfish,,,animals,starfish animal
-carrot,,,vegetables,carrot vegetable
-potato,,,vegetables,potato vegetable
-tomato,,,vegetables,tomato vegetable
-cucumber,,,vegetables,cucumber vegetable
-broccoli,,,vegetables,broccoli vegetable
-corn,,,vegetables,corn vegetable
-peas,,,vegetables,peas vegetable
-pumpkin,,,vegetables,pumpkin vegetable
-onion,,,vegetables,onion vegetable
-garlic,,,vegetables,garlic vegetable
-lettuce,,,vegetables,lettuce vegetable
-spinach,,,vegetables,spinach vegetable
-cabbage,,,vegetables,cabbage vegetable
-bell pepper,,,vegetables,bell pepper vegetable
-eggplant,,,vegetables,eggplant vegetable
-zucchini,,,vegetables,zucchini vegetable
-mushroom,,,vegetables,mushroom vegetable
-radish,,,vegetables,radish vegetable
-celery,,,vegetables,celery vegetable
-cauliflower,,,vegetables,cauliflower vegetable
-green bean,,,vegetables,green bean vegetable
-turnip,,,vegetables,turnip vegetable
-leek,,,vegetables,leek vegetable
-ginger,,,vegetables,ginger vegetable
-avocado,,,vegetables,avocado vegetable
-olive,,,vegetables,olive vegetable
-sweet potato,,,vegetables,sweet potato vegetable
-beetroot,,,vegetables,beetroot vegetable
-squash,,,vegetables,squash vegetable
-kale,,,vegetables,kale vegetable
-chili,,,vegetables,chili vegetable
-sweetcorn,,,vegetables,sweetcorn vegetable
-parsnip,,,vegetables,parsnip vegetable
-brussels sprout,,,vegetables,brussels sprout vegetable
-asparagus,,,vegetables,asparagus vegetable
-yam,,,vegetables,yam vegetable
-pumpkin seed,,,vegetables,pumpkin seed vegetable
-artichoke,,,vegetables,artichoke vegetable
-chicory,,,vegetables,chicory vegetable
-watercress,,,vegetables,watercress vegetable
 banana,,,fruits,banana fruit
-apple,,,fruits,apple fruit
 orange,,,fruits,orange fruit
-strawberry,,,fruits,strawberry fruit
-grape,,,fruits,grape fruit
-watermelon,,,fruits,watermelon fruit
-melon,,,fruits,melon fruit
-peach,,,fruits,peach fruit
-pear,,,fruits,pear fruit
-plum,,,fruits,plum fruit
-cherry,,,fruits,cherry fruit
-blueberry,,,fruits,blueberry fruit
-raspberry,,,fruits,raspberry fruit
-blackberry,,,fruits,blackberry fruit
-kiwi,,,fruits,kiwi fruit
-pineapple,,,fruits,pineapple fruit
-mango,,,fruits,mango fruit
-papaya,,,fruits,papaya fruit
-coconut,,,fruits,coconut fruit
-lemon,,,fruits,lemon fruit
-lime,,,fruits,lime fruit
-fig,,,fruits,fig fruit
-date,,,fruits,date fruit
-apricot,,,fruits,apricot fruit
-pomegranate,,,fruits,pomegranate fruit
-grapefruit,,,fruits,grapefruit fruit
-mandarin,,,fruits,mandarin fruit
-cranberry,,,fruits,cranberry fruit
-guava,,,fruits,guava fruit
-passion fruit,,,fruits,passion fruit fruit
-lychee,,,fruits,lychee fruit
-dragon fruit,,,fruits,dragon fruit fruit
-persimmon,,,fruits,persimmon fruit
-nectarine,,,fruits,nectarine fruit
-cantaloupe,,,fruits,cantaloupe fruit
-honeydew,,,fruits,honeydew fruit
-star fruit,,,fruits,star fruit fruit
-quince,,,fruits,quince fruit
-tangerine,,,fruits,tangerine fruit
-currant,,,fruits,currant fruit
-book,,,other things,book
-chair,,,other things,chair
-house,,,other things,house
-key,,,other things,key
-shoe,,,other things,shoe
-ball,,,other things,ball
-doll,,,other things,doll
-teddy bear,,,other things,teddy bear
-crayon,,,other things,crayon
-pencil,,,other things,pencil
-paper,,,other things,paper
-table,,,other things,table
-bed,,,other things,bed
-pillow,,,other things,pillow
-blanket,,,other things,blanket
-shirt,,,other things,shirt
-pants,,,other things,pants
-socks,,,other things,socks
-hat,,,other things,hat
-coat,,,other things,coat
-cup,,,other things,cup
-plate,,,other things,plate
-spoon,,,other things,spoon
-fork,,,other things,fork
-toothbrush,,,other things,toothbrush
-towel,,,other things,towel
-soap,,,other things,soap
-comb,,,other things,comb
-backpack,,,other things,backpack
-toy car,,,other things,toy car
-blocks,,,other things,blocks
-puzzle,,,other things,puzzle
-balloon,,,other things,balloon
-clock,,,other things,clock
-mirror,,,other things,mirror
-window,,,other things,window
-door,,,other things,door
-lamp,,,other things,lamp
-umbrella,,,other things,umbrella
-bag,,,other things,bag
+strawberry,,,fruits,strawberry
+grapes,,,fruits,grapes fruit
+watermelon,,,fruits,watermelon
+dog,,,animaux,dog
+horse,,,animaux,horse
+cow,,,animaux,cow
+bird,,,animaux,bird
+rabbit,,,animaux,rabbit
+elephant,,,animaux,elephant
+bus,,,vehicules,city bus
+train,,,vehicules,train
+airplane,,,vehicules,airplane
+bicycle,,,vehicules,bicycle
+boat,,,vehicules,boat
+book,,,objets,book
+chair,,,objets,chair
+house,,,objets,house
+key,,,objets,key
+shoe,,,objets,shoe
+moon,,,nature,moon
+flower,,,nature,flower
+tree,,,nature,tree

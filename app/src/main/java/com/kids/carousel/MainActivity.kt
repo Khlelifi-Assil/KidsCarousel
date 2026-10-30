@@ -123,9 +123,12 @@ class MainActivity : FragmentActivity() {
 
     private fun speak(item: Item) {
         val steps = mutableListOf<Step>()
-        listOf(Locale("ar") to item.ar, Locale.FRENCH to item.fr, Locale.ENGLISH to item.en).forEach { (l, w) ->
+        listOf(Locale("ar") to item.ar, Locale.FRENCH to item.fr, Locale.ENGLISH to item.en)
+            .filter { !item.onlyAr || it.first.language == "ar" }.forEach { (l, w) ->
             steps += Step(l, w, 0.9f)
-            if (l.language == "ar") {
+            if (!item.spell) {
+                // lettres seules: pas d'épellation
+            } else if (l.language == "ar") {
                 if (ArabicSpell.letters(w).size > 1) steps += Step(l, ArabicSpell.spokenNames(w), 0.75f)
             } else {
                 val ls = w.filter { it.isLetter() }
